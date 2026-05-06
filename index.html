@@ -19,6 +19,8 @@
   --ink2:#2C3E50;
   --muted:#6B8BA4;
   --line:#D0E8F5;
+  --green:#1A7A45;
+  --green-pale:#E8F8F0;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;margin:0}
@@ -30,12 +32,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,92,138,0.
 .nav-logo-text{font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:0.01em}
 .nav-logo-text span{color:var(--blue-light)}
 .nav-links{display:flex;gap:0;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.85rem;font-weight:500;padding:0 1.5rem;height:68px;display:flex;align-items:center;border-bottom:3px solid transparent;transition:all 0.2s}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.85rem;font-weight:500;padding:0 1.3rem;height:68px;display:flex;align-items:center;border-bottom:3px solid transparent;transition:all 0.2s}
 .nav-links a:hover{color:#fff;border-bottom-color:var(--blue-light)}
 .nav-cta{background:#fff;color:var(--blue);font-size:0.85rem;font-weight:700;padding:0.6rem 1.5rem;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap}
 .nav-cta:hover{background:var(--blue-pale)}
 
-/* HERO - foto de fondo estilo referencia */
+/* HERO */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0D3550 0%,#1A5C8A 40%,#2196C4 100%)}
 .hero-bg-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1551076805-e1869033e561?w=1600&q=80');background-size:cover;background-position:center;opacity:0.15}
@@ -56,12 +58,12 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .play-circle{width:22px;height:22px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .play-tri{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:9px solid #fff;margin-left:2px}
 .hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.15);padding-top:2.25rem}
-.hs{flex:1;padding-right:2rem}
-.hs:not(:last-child){border-right:1px solid rgba(255,255,255,0.15);margin-right:2rem}
-.hs-num{font-weight:800;font-size:2.4rem;letter-spacing:-0.04em;color:#fff;line-height:1}
-.hs-label{font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:0.3rem}
+.hs{flex:1;padding-right:1.5rem}
+.hs:not(:last-child){border-right:1px solid rgba(255,255,255,0.15);margin-right:1.5rem}
+.hs-num{font-weight:800;font-size:2rem;letter-spacing:-0.04em;color:#fff;line-height:1}
+.hs-label{font-size:0.7rem;color:rgba(255,255,255,0.55);margin-top:0.3rem}
 
-/* HERO RIGHT - card flotante */
+/* HERO RIGHT */
 .hero-card{background:rgba(255,255,255,0.97);border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.3);max-width:380px;margin-left:auto}
 .hc-bar{background:var(--offwhite);padding:0.75rem 1.1rem;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid var(--line)}
 .hc-dot{width:9px;height:9px;border-radius:50%}
@@ -84,7 +86,7 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .hc-badge.att{background:#FEF9E7;color:#9A7D0A}
 .hc-badge.der{background:#FDEDEC;color:#B03A2E}
 
-/* SERVICIOS - estilo referencia: 3 columnas con icono arriba */
+/* SERVICIOS BAR */
 .services-bar{background:var(--blue);padding:3rem 5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid rgba(255,255,255,0.1)}
 .srv{padding:1.5rem 2rem;border-right:1px solid rgba(255,255,255,0.12);display:flex;flex-direction:column;align-items:flex-start;gap:0.75rem}
 .srv:last-child{border-right:none}
@@ -93,6 +95,14 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .srv-desc{font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.6;font-weight:300}
 .srv-link{font-size:0.78rem;font-weight:600;color:var(--blue-light);text-decoration:none;display:flex;align-items:center;gap:0.3rem;margin-top:0.25rem}
 .srv-link:hover{color:#fff}
+
+/* METRICS STRIP */
+.metrics-strip{background:var(--offwhite);border-bottom:1px solid var(--line);padding:2rem 5rem}
+.metrics-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;gap:1rem;flex-wrap:wrap}
+.ms-item{text-align:center;flex:1;min-width:130px}
+.ms-num{font-weight:800;font-size:1.75rem;letter-spacing:-0.03em;color:var(--blue);line-height:1}
+.ms-label{font-size:0.7rem;color:var(--muted);margin-top:0.3rem;text-transform:uppercase;letter-spacing:0.06em}
+.ms-div{width:1px;height:36px;background:var(--line);flex-shrink:0}
 
 /* MODAL VIDEO */
 .modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
@@ -177,6 +187,25 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .demo-btn{background:var(--offwhite);border:1px solid var(--line);color:var(--muted);font-size:0.75rem;padding:0.4rem 0.9rem;border-radius:100px;cursor:pointer;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500}
 .demo-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
 
+/* INVENTARIO KPI en demo */
+.inv-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.65rem;margin-bottom:1rem}
+.inv-kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:0.75rem}
+.inv-kpi-num{font-weight:800;font-size:1.25rem;letter-spacing:-0.02em;color:var(--blue)}
+.inv-kpi-label{font-size:0.6rem;color:var(--muted);margin-top:0.1rem}
+.inv-cat-row{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.8rem;background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:0.4rem}
+.inv-cat-name{font-size:0.77rem;font-weight:600;color:var(--ink)}
+.inv-cat-items{font-size:0.65rem;color:var(--muted)}
+.inv-cat-val{font-size:0.82rem;font-weight:800;color:var(--blue2)}
+.inv-cat-bar-wrap{width:80px;background:var(--line);border-radius:4px;height:4px;margin-left:0.5rem}
+.inv-cat-bar{height:100%;border-radius:4px;background:var(--blue2)}
+
+/* Kine demo */
+.kine-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.65rem;margin-bottom:1rem}
+.kine-table-row{display:flex;align-items:center;justify-content:space-between;padding:0.55rem 0.8rem;background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:0.35rem}
+.kine-pac{font-size:0.77rem;font-weight:600;color:var(--ink)}
+.kine-diag{font-size:0.62rem;color:var(--muted)}
+.kine-prof{font-size:0.65rem;color:var(--blue2)}
+
 /* POR QUE */
 .compare-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(26,92,138,0.06)}
 .compare-head{display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--blue);padding:1rem 1.75rem}
@@ -197,11 +226,39 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--blue),var(--blue3));opacity:0;transition:opacity 0.3s}
 .feat-card:hover{border-color:var(--blue-light);box-shadow:0 8px 32px rgba(26,92,138,0.1);transform:translateY(-2px)}
 .feat-card:hover::before{opacity:1}
+.feat-card.highlight{border-color:var(--blue-light);background:var(--blue-pale)}
+.feat-card.highlight::before{opacity:1}
 .feat-num{font-size:0.65rem;font-weight:700;color:var(--blue-light);letter-spacing:0.1em;margin-bottom:0.6rem}
 .feat-title{font-weight:700;font-size:1rem;margin-bottom:0.6rem;color:var(--ink)}
 .feat-desc{font-size:0.85rem;color:var(--muted);line-height:1.7}
+.feat-new{display:inline-block;background:var(--blue);color:#fff;font-size:0.58rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:4px;margin-left:0.5rem;vertical-align:middle;letter-spacing:0.04em}
 
-/* CASOS - SIN ICONOS */
+/* SGTRUMAO CASE STUDY */
+.sgtrumao-wrap{background:var(--blue-pale);padding:6rem 5rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sgtrumao-inner{max-width:1300px;margin:0 auto}
+.sgtrumao-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.sg-badge{display:inline-flex;align-items:center;gap:0.6rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:0.6rem 1.2rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(26,92,138,0.06)}
+.sg-badge-text{font-weight:800;font-size:1rem;color:var(--blue)}
+.sg-badge-tag{font-size:0.65rem;color:var(--muted);border-left:1px solid var(--line);padding-left:0.6rem;margin-left:0.2rem}
+.sg-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0.85rem;margin-bottom:1.5rem}
+.sg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.25rem;text-align:center;box-shadow:0 2px 8px rgba(26,92,138,0.04)}
+.sg-num{font-weight:800;font-size:1.9rem;letter-spacing:-0.03em;color:var(--blue);line-height:1}
+.sg-label{font-size:0.68rem;color:var(--muted);margin-top:0.4rem;text-transform:uppercase;letter-spacing:0.05em}
+.sg-events{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+.sg-event-tag{font-size:0.7rem;font-weight:600;color:var(--blue2);background:#fff;padding:0.25rem 0.75rem;border-radius:100px;border:1px solid var(--line)}
+.sg-quote-wrap{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.75rem;box-shadow:0 4px 16px rgba(26,92,138,0.06);margin-bottom:1.25rem}
+.sg-quote{font-size:0.95rem;font-style:italic;color:var(--ink2);line-height:1.85;padding-left:1.25rem;border-left:3px solid var(--blue2);margin-bottom:1.25rem}
+.sg-author{display:flex;align-items:center;gap:0.75rem}
+.sg-avatar{width:40px;height:40px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.85rem;flex-shrink:0}
+.sg-author-name{font-weight:700;font-size:0.88rem;color:var(--ink)}
+.sg-author-role{font-size:0.72rem;color:var(--muted)}
+.sg-contacts{display:flex;flex-direction:column;gap:0.75rem}
+.sg-contact{display:flex;align-items:center;gap:0.75rem}
+.sg-contact-icon{width:34px;height:34px;border-radius:9px;background:var(--blue-pale);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:0.8rem;flex-shrink:0}
+.sg-contact-name{font-weight:600;font-size:0.85rem;color:var(--ink)}
+.sg-contact-email{font-size:0.75rem;color:var(--blue2)}
+
+/* CASOS */
 .casos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .caso-card{border-top:3px solid var(--blue);padding:1.75rem 1.5rem;background:#fff;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0 0 14px 14px;transition:all 0.3s}
 .caso-card:hover{box-shadow:0 8px 32px rgba(26,92,138,0.1);transform:translateY(-2px)}
@@ -210,7 +267,27 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .caso-desc{font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:1.25rem}
 .caso-tag{font-size:0.68rem;font-weight:600;color:var(--blue2);background:var(--blue-pale);padding:0.25rem 0.7rem;border-radius:100px;border:1px solid var(--line);display:inline-block}
 
-/* PRICING - SIN PRECIOS */
+/* ENTERPRISE SECTION */
+.enterprise-section{background:var(--ink);padding:6rem 5rem}
+.enterprise-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.ent-chip{display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:0.7rem;font-weight:700;padding:0.35rem 0.9rem;border-radius:100px;margin-bottom:1.25rem;letter-spacing:0.08em;text-transform:uppercase}
+.ent-title{font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.85rem;color:#fff}
+.ent-title em{font-style:normal;color:var(--blue-light)}
+.ent-sub{color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.75;margin-bottom:2rem}
+.ent-feats{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
+.ent-feat{display:flex;align-items:flex-start;gap:0.75rem;color:rgba(255,255,255,0.8);font-size:0.87rem;line-height:1.5}
+.ent-check{width:20px;height:20px;border-radius:50%;background:rgba(179,217,240,0.15);border:1px solid rgba(179,217,240,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--blue-light);flex-shrink:0;margin-top:1px}
+.ent-cta{display:inline-flex;align-items:center;gap:0.6rem;background:#fff;color:var(--blue);font-size:0.9rem;font-weight:700;padding:0.9rem 2rem;border-radius:8px;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.ent-cta:hover{background:var(--blue-pale)}
+.ent-cards{display:flex;flex-direction:column;gap:1rem}
+.ent-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1.5rem;transition:all 0.2s}
+.ent-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15)}
+.ent-card-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem}
+.ent-card-icon{font-size:1.1rem}
+.ent-card-title{font-weight:700;font-size:0.9rem;color:#fff}
+.ent-card-desc{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6}
+
+/* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .price-card{border:1px solid var(--line);border-radius:16px;padding:2.25rem;background:#fff;position:relative}
 .price-card.featured{background:var(--blue);border-color:var(--blue)}
@@ -225,7 +302,7 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .price-card.featured .price-feats li{color:rgba(255,255,255,0.85)}
 .price-feats li::before{content:'✓';color:var(--blue2);font-size:0.8rem;flex-shrink:0;font-weight:700}
 .price-card.featured .price-feats li::before{color:var(--blue-light)}
-.pbtn{display:block;text-align:center;padding:0.9rem;border-radius:9px;font-size:0.88rem;font-weight:700;cursor:pointer;border:2px solid var(--line);color:var(--ink);background:transparent;width:100%;transition:all 0.2s}
+.pbtn{display:block;text-align:center;padding:0.9rem;border-radius:9px;font-size:0.88rem;font-weight:700;cursor:pointer;border:2px solid var(--line);color:var(--ink);background:transparent;width:100%;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif}
 .pbtn:hover{border-color:var(--blue);color:var(--blue)}
 .pbtn.inv{background:#fff;color:var(--blue);border-color:#fff}
 .pbtn.inv:hover{background:var(--blue-pale)}
@@ -249,6 +326,7 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .contact-info-item{display:flex;align-items:center;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.1)}
 .cii-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
 .cii-text{font-size:0.875rem;color:rgba(255,255,255,0.75)}
+.cii-sub{font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.1rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .fg{display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1rem}
 .fg label{font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-transform:uppercase}
@@ -257,7 +335,7 @@ h1 em{font-style:normal;color:var(--blue-light)}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.12)}
 .fg select option{background:var(--blue);color:#fff}
 .fg textarea{resize:vertical;min-height:100px}
-.btn-submit{background:#fff;color:var(--blue);font-size:0.9rem;font-weight:700;padding:1rem;border-radius:9px;border:none;cursor:pointer;width:100%;transition:all 0.2s}
+.btn-submit{background:#fff;color:var(--blue);font-size:0.9rem;font-weight:700;padding:1rem;border-radius:9px;border:none;cursor:pointer;width:100%;transition:all 0.2s;font-family:'Plus Jakarta Sans',sans-serif}
 .btn-submit:hover{background:var(--blue-pale)}
 
 footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
@@ -266,6 +344,9 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
 .footer-logo-text{font-weight:700;font-size:1rem;color:#fff}
 .footer-logo-text span{color:var(--blue-light)}
 .footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:0.78rem;color:rgba(255,255,255,0.4);text-decoration:none}
+.footer-links a:hover{color:rgba(255,255,255,0.7)}
 
 @media(max-width:1024px){
   .hero-content{grid-template-columns:1fr;padding:0 2rem}
@@ -282,6 +363,14 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
   .contact-inner{grid-template-columns:1fr;gap:2.5rem}
   .form-row{grid-template-columns:1fr}
   footer{padding:2rem 1.5rem}
+  .sgtrumao-wrap{padding:4rem 1.5rem}
+  .sgtrumao-grid{grid-template-columns:1fr;gap:2.5rem}
+  .enterprise-section{padding:4rem 1.5rem}
+  .enterprise-inner{grid-template-columns:1fr;gap:2.5rem}
+  .metrics-strip{padding:1.5rem}
+  .inv-strip{padding:1.5rem}
+  .hero-stats{flex-wrap:wrap;gap:1rem}
+  .hs{min-width:100px}
 }
 </style>
 </head>
@@ -295,7 +384,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
       <div class="vp-dots"></div>
       <div class="vp-btn"><div class="vp-tri"></div></div>
       <div class="vp-label">Demo de TRIAGE360 en acción</div>
-      <div class="vp-sub">Video disponible próximamente</div>
+      <div class="vp-sub">Video disponible próximamente · Solicita demo en vivo</div>
     </div>
     <div class="modal-footer">
       <div>
@@ -317,6 +406,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <li><a href="#demo">Demo</a></li>
     <li><a href="#porq">¿Por qué?</a></li>
     <li><a href="#features">Funciones</a></li>
+    <li><a href="#sgtrumao">Caso real</a></li>
     <li><a href="#pricing">Planes</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contacto</a></li>
@@ -331,9 +421,9 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-badge"><span class="hero-badge-dot"></span>Plataforma clínica para eventos</div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Plataforma clínica para eventos · Chile</div>
       <h1>La medicina que<br>tu evento <em>merece</em></h1>
-      <p class="hero-sub">TRIAGE360 centraliza atenciones, inventario clínico y equipo médico en tiempo real. Diseñado para operaciones médicas de alto estándar.</p>
+      <p class="hero-sub">TRIAGE360 centraliza atenciones, inventario clínico y equipo médico en tiempo real. Diseñado para operaciones médicas de alto estándar en terreno.</p>
       <div class="hero-btns">
         <button class="btn-white" id="openVideo"><div class="play-circle"><div class="play-tri"></div></div>Ver demo</button>
         <a href="#contact" class="btn-outline-white">Solicitar demo en vivo</a>
@@ -342,6 +432,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
         <div class="hs"><div class="hs-num" id="hm1">0</div><div class="hs-label">Eventos cubiertos</div></div>
         <div class="hs"><div class="hs-num" id="hm2">0</div><div class="hs-label">Profesionales activos</div></div>
         <div class="hs"><div class="hs-num" id="hm3">0</div><div class="hs-label">Atenciones registradas</div></div>
+        <div class="hs"><div class="hs-num">$3,6M</div><div class="hs-label">Inventario valorizado</div></div>
       </div>
     </div>
     <div>
@@ -350,7 +441,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
           <div class="hc-dot" style="background:#FF5F57"></div>
           <div class="hc-dot" style="background:#FEBC2E"></div>
           <div class="hc-dot" style="background:#28C840"></div>
-          <div class="hc-url">triage360.cl</div>
+          <div class="hc-url">triage360.cl — Montenbaik Enduro 2026</div>
         </div>
         <div class="hc-body">
           <div class="hc-top">
@@ -364,7 +455,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
           </div>
           <div class="hc-rows">
             <div class="hc-row"><div><div class="hc-name">C. Ramírez</div><div class="hc-prof">Dr. Vásquez · Médico</div></div><span class="hc-badge ok">Alta</span></div>
-            <div class="hc-row"><div><div class="hc-name">M. Torres</div><div class="hc-prof">Kine. López · Kinesiólogo</div></div><span class="hc-badge att">Atención</span></div>
+            <div class="hc-row"><div><div class="hc-name">M. Torres</div><div class="hc-prof">Kine. López · Kinesióloga</div></div><span class="hc-badge att">Atención</span></div>
             <div class="hc-row"><div><div class="hc-name">P. Soto</div><div class="hc-prof">P. Muñoz · Paramédico</div></div><span class="hc-badge der">Derivado</span></div>
           </div>
         </div>
@@ -373,25 +464,60 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
   </div>
 </div>
 
-<!-- SERVICIOS BAR - estilo referencia -->
+<!-- SERVICIOS BAR -->
 <div class="services-bar">
   <div class="srv">
     <div class="srv-icon">🏥</div>
-    <div class="srv-title">Atenciones en tiempo real</div>
+    <div class="srv-title">Atenciones multi-profesión</div>
     <div class="srv-desc">Médico, enfermería, kinesiología, paramedicina y masoterapia. Cada profesional registra desde su módulo específico.</div>
     <a href="#features" class="srv-link">Ver más →</a>
   </div>
   <div class="srv">
-    <div class="srv-icon">🚑</div>
-    <div class="srv-title">Inventario clínico</div>
-    <div class="srv-desc">Control de carros y bolsos de medicamentos con alertas automáticas. Stock siempre actualizado para cada evento.</div>
+    <div class="srv-icon">📦</div>
+    <div class="srv-title">Inventario y valorización</div>
+    <div class="srv-desc">179 tipos de insumos valorizados en tiempo real. Control de carros, bolsos de medicamentos y bolso kines con alertas automáticas.</div>
     <a href="#features" class="srv-link">Ver más →</a>
   </div>
   <div class="srv">
     <div class="srv-icon">📊</div>
-    <div class="srv-title">Reportes exportables</div>
-    <div class="srv-desc">Genera reportes profesionales en PDF y Excel en un clic. Listos para entregar al organizador del evento.</div>
+    <div class="srv-title">Reportes y costos por evento</div>
+    <div class="srv-desc">Genera reportes en PDF y Excel en un clic. Analiza el costo real de cada operación médica con desglose completo.</div>
     <a href="#features" class="srv-link">Ver más →</a>
+  </div>
+</div>
+
+<!-- METRICS STRIP -->
+<div class="metrics-strip">
+  <div class="metrics-inner">
+    <div class="ms-item">
+      <div class="ms-num">52</div>
+      <div class="ms-label">Eventos cubiertos</div>
+    </div>
+    <div class="ms-div"></div>
+    <div class="ms-item">
+      <div class="ms-num">11</div>
+      <div class="ms-label">Profesionales activos</div>
+    </div>
+    <div class="ms-div"></div>
+    <div class="ms-item">
+      <div class="ms-num">500+</div>
+      <div class="ms-label">Atenciones registradas</div>
+    </div>
+    <div class="ms-div"></div>
+    <div class="ms-item">
+      <div class="ms-num">179</div>
+      <div class="ms-label">Tipos de insumos</div>
+    </div>
+    <div class="ms-div"></div>
+    <div class="ms-item">
+      <div class="ms-num">$3,6M</div>
+      <div class="ms-label">Inventario valorizado</div>
+    </div>
+    <div class="ms-div"></div>
+    <div class="ms-item">
+      <div class="ms-num">7</div>
+      <div class="ms-label">Carros clínicos</div>
+    </div>
   </div>
 </div>
 
@@ -399,7 +525,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
 <section class="section" id="demo">
   <div class="sec-chip">Demo interactivo</div>
   <h2 class="sec-title">Así opera TRIAGE360 <em>en terreno</em></h2>
-  <p class="sec-sub">Explora las vistas principales que usa tu equipo médico durante un evento.</p>
+  <p class="sec-sub">Explora las vistas principales que usa tu equipo médico durante un evento real.</p>
   <div class="demo-wrap">
     <div class="demo-bar">
       <div class="hc-dot" style="background:#FF5F57"></div>
@@ -414,10 +540,14 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
         <div class="ds-item" id="dm-0"><span class="ds-dot"></span>Atenciones</div>
         <div class="ds-item" id="dm-1"><span class="ds-dot"></span>Carros Clínicos</div>
         <div class="ds-item" id="dm-2"><span class="ds-dot"></span>Medicamentos</div>
-        <div class="ds-item" id="dm-3"><span class="ds-dot"></span>Reportes</div>
+        <div class="ds-item" id="dm-3"><span class="ds-dot"></span>Kinesiología</div>
+        <div class="ds-item" id="dm-4"><span class="ds-dot"></span>Valorización</div>
+        <div class="ds-item" id="dm-5"><span class="ds-dot"></span>Reportes</div>
         <div style="margin-top:auto;font-size:0.62rem;color:rgba(255,255,255,0.35)">Admin · Alfredo J.</div>
       </div>
       <div class="demo-main">
+
+        <!-- Screen 0: Atenciones -->
         <div class="dscreen" id="ds-0">
           <div class="dsh"><span class="dsh-title">Atenciones en Carpa Médica</span><span class="dsh-live"><span class="dsh-ldot"></span>En vivo</span></div>
           <div class="d-cards">
@@ -430,34 +560,85 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
             <tbody>
               <tr><td>C. Ramírez</td><td>Dr. Vásquez</td><td>Esguince tobillo</td><td><span class="dbadge ok">Alta</span></td></tr>
               <tr><td>M. Torres</td><td>Kine. López</td><td>Contractura lumbar</td><td><span class="dbadge att">Atención</span></td></tr>
-              <tr><td>P. Soto</td><td>P. Muñoz · Paramédico</td><td>Golpe de calor</td><td><span class="dbadge der">Derivado</span></td></tr>
+              <tr><td>P. Soto</td><td>P. Muñoz</td><td>Golpe de calor</td><td><span class="dbadge der">Derivado</span></td></tr>
               <tr><td>J. Herrera</td><td>Enf. Castro</td><td>Herida en rodilla</td><td><span class="dbadge ok">Alta</span></td></tr>
             </tbody>
           </table>
         </div>
+
+        <!-- Screen 1: Carros -->
         <div class="dscreen" id="ds-1">
-          <div class="dsh"><span class="dsh-title">Carros Clínicos</span><span class="dsh-live"><span class="dsh-ldot"></span>Stock actualizado</span></div>
+          <div class="dsh"><span class="dsh-title">Carros Clínicos — 7 carros activos</span><span class="dsh-live"><span class="dsh-ldot"></span>Stock actualizado</span></div>
           <div class="carro-grid">
-            <div class="carro-card"><div class="cn">Carro 1</div><div class="cb-wrap"><div class="cb" style="width:92%"></div></div><div class="cb-info"><span>97 insumos</span><span style="color:var(--blue2);font-weight:600">92%</span></div></div>
-            <div class="carro-card"><div class="cn">Carro 2</div><div class="cb-wrap"><div class="cb" style="width:65%;background:#C0392B"></div></div><div class="cb-info"><span>67 insumos</span><span style="color:#C0392B;font-weight:600">65% · Revisar</span></div></div>
-            <div class="carro-card"><div class="cn">Carro 3</div><div class="cb-wrap"><div class="cb" style="width:88%"></div></div><div class="cb-info"><span>92 insumos</span><span style="color:var(--blue2);font-weight:600">88%</span></div></div>
-            <div class="carro-card"><div class="cn">Carro 4</div><div class="cb-wrap"><div class="cb" style="width:78%"></div></div><div class="cb-info"><span>81 insumos</span><span style="color:var(--blue2);font-weight:600">78%</span></div></div>
+            <div class="carro-card"><div class="cn">Carro 1 · Médico</div><div class="cb-wrap"><div class="cb" style="width:92%"></div></div><div class="cb-info"><span>158 insumos</span><span style="color:var(--blue2);font-weight:600">92%</span></div></div>
+            <div class="carro-card"><div class="cn">Carro 2 · Trauma</div><div class="cb-wrap"><div class="cb" style="width:78%"></div></div><div class="cb-info"><span>125 insumos</span><span style="color:var(--blue2);font-weight:600">78%</span></div></div>
+            <div class="carro-card"><div class="cn">Carro 3 · Paramédico</div><div class="cb-wrap"><div class="cb" style="width:85%"></div></div><div class="cb-info"><span>136 insumos</span><span style="color:var(--blue2);font-weight:600">85%</span></div></div>
+            <div class="carro-card"><div class="cn">Carro 4 · Kinesiología</div><div class="cb-wrap"><div class="cb" style="width:61%;background:#C0392B"></div></div><div class="cb-info"><span>98 insumos</span><span style="color:#C0392B;font-weight:600">61% · Revisar</span></div></div>
           </div>
-          <div style="margin-top:0.75rem;background:#FDEDEC;border:1px solid #F1948A;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.72rem;color:#B03A2E;font-weight:500">⚠ Carro 2 bajo stock mínimo — Vendas y Suero Fisiológico</div>
+          <div style="margin-top:0.75rem;background:#FDEDEC;border:1px solid #F1948A;border-radius:8px;padding:0.6rem 0.9rem;font-size:0.72rem;color:#B03A2E;font-weight:500">⚠ Carro 4 bajo stock mínimo — Vendas elásticas y Compresas frías</div>
         </div>
+
+        <!-- Screen 2: Medicamentos -->
         <div class="dscreen" id="ds-2">
-          <div class="dsh"><span class="dsh-title">Bolsos de Medicamentos</span><span class="dsh-live"><span class="dsh-ldot"></span>3 alertas activas</span></div>
+          <div class="dsh"><span class="dsh-title">Bolsos de Medicamentos — 26 fármacos</span><span class="dsh-live"><span class="dsh-ldot"></span>2 alertas activas</span></div>
           <div class="med-list">
-            <div class="med-row"><div><div class="mn">Ketorolaco 30mg</div><div class="me">Vence: 15/08/2026</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#1A7A45">18</div><span class="dbadge ok">OK</span></div></div>
-            <div class="med-row"><div><div class="mn">Diazepam 10mg</div><div class="me">Vence: 03/06/2026</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#9A7D0A">4</div><span class="dbadge att">Bajo</span></div></div>
-            <div class="med-row"><div><div class="mn">Adrenalina 1mg</div><div class="me">Vence: 20/04/2026</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#B03A2E">2</div><span class="dbadge der">Crítico</span></div></div>
-            <div class="med-row"><div><div class="mn">Paracetamol 500mg</div><div class="me">Vence: 12/12/2026</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#1A7A45">32</div><span class="dbadge ok">OK</span></div></div>
-            <div class="med-row"><div><div class="mn">Loratadina 10mg</div><div class="me">Vence: 01/05/2026</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#9A7D0A">6</div><span class="dbadge att">Próximo</span></div></div>
+            <div class="med-row"><div><div class="mn">Ketorolaco 30mg · inyectable</div><div class="me">Vence: 15/08/2026 · $3.200/amp.</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#1A7A45">18</div><span class="dbadge ok">OK</span></div></div>
+            <div class="med-row"><div><div class="mn">Ondansetrón 4mg · inyectable</div><div class="me">Vence: 30/11/2026 · $4.500/amp.</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#1A7A45">6</div><span class="dbadge ok">OK</span></div></div>
+            <div class="med-row"><div><div class="mn">Dexametasona 4mg · inyectable</div><div class="me">Vence: 01/12/2026 · $2.800/amp.</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#9A7D0A">4</div><span class="dbadge att">Bajo</span></div></div>
+            <div class="med-row"><div><div class="mn">Paracetamol 500mg · oral</div><div class="me">Vence: 12/12/2026 · $85/comp.</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#1A7A45">32</div><span class="dbadge ok">OK</span></div></div>
+            <div class="med-row"><div><div class="mn">Salbutamol · aerosol</div><div class="me">Vence: 01/09/2026 · $6.200/inh.</div></div><div style="display:flex;align-items:center;gap:0.4rem"><div class="mq" style="color:#B03A2E">1</div><span class="dbadge der">Crítico</span></div></div>
           </div>
         </div>
+
+        <!-- Screen 3: Kinesiología -->
         <div class="dscreen" id="ds-3">
+          <div class="dsh"><span class="dsh-title">Atenciones Kinesiología</span><span class="dsh-live"><span class="dsh-ldot"></span>Módulo activo</span></div>
+          <div class="kine-stat-grid">
+            <div class="d-card"><div class="d-num" style="color:#7B2FBE">8</div><div class="d-label">Atenciones hoy</div></div>
+            <div class="d-card"><div class="d-num" style="color:#7B2FBE">30</div><div class="d-label">Items en bolso</div></div>
+            <div class="d-card"><div class="d-num" style="color:#1A7A45">$167K</div><div class="d-label">Bolso valorizado</div></div>
+          </div>
+          <div class="kine-table-row"><div><div class="kine-pac">A. Fuentes · 35 años</div><div class="kine-diag">Contractura cervical post caída</div></div><div class="kine-prof">Kine. López</div><span class="dbadge att">Atención</span></div>
+          <div class="kine-table-row"><div><div class="kine-pac">R. Morales · 28 años</div><div class="kine-diag">Esguince rodilla derecha</div></div><div class="kine-prof">Kine. López</div><span class="dbadge ok">Alta</span></div>
+          <div class="kine-table-row"><div><div class="kine-pac">F. Sepúlveda · 42 años</div><div class="kine-diag">Distensión muscular muslo</div></div><div class="kine-prof">Kine. López</div><span class="dbadge att">En curso</span></div>
+          <div style="margin-top:0.75rem;background:var(--blue-pale);border:1px solid var(--line);border-radius:8px;padding:0.6rem 0.9rem;font-size:0.72rem;color:var(--blue2);font-weight:500">🎒 Bolso Kines Maestro · 30 insumos · 111 unidades · $167.100</div>
+        </div>
+
+        <!-- Screen 4: Valorización -->
+        <div class="dscreen" id="ds-4">
+          <div class="dsh"><span class="dsh-title">Valorización del Inventario</span><span class="dsh-live"><span class="dsh-ldot"></span>Actualizado</span></div>
+          <div class="inv-kpi-grid">
+            <div class="inv-kpi"><div class="inv-kpi-num">$3,6M</div><div class="inv-kpi-label">Valor total inventario</div></div>
+            <div class="inv-kpi"><div class="inv-kpi-num">179</div><div class="inv-kpi-label">Tipos de insumos</div></div>
+            <div class="inv-kpi"><div class="inv-kpi-num">82%</div><div class="inv-kpi-label">Items valorizados</div></div>
+          </div>
+          <div class="inv-cat-row">
+            <div><div class="inv-cat-name">Medicamentos</div><div class="inv-cat-items">26 fármacos</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <div class="inv-cat-bar-wrap"><div class="inv-cat-bar" style="width:100%"></div></div>
+              <div class="inv-cat-val">$187.000</div>
+            </div>
+          </div>
+          <div class="inv-cat-row">
+            <div><div class="inv-cat-name">Bolso Kines Maestro</div><div class="inv-cat-items">30 insumos · 111 unid.</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <div class="inv-cat-bar-wrap"><div class="inv-cat-bar" style="width:86%"></div></div>
+              <div class="inv-cat-val">$167.100</div>
+            </div>
+          </div>
+          <div class="inv-cat-row">
+            <div><div class="inv-cat-name">Insumos Generales</div><div class="inv-cat-items">123 items en catálogo</div></div>
+            <div style="display:flex;align-items:center;gap:0.75rem">
+              <div class="inv-cat-bar-wrap"><div class="inv-cat-bar" style="width:100%"></div></div>
+              <div class="inv-cat-val">$2.259.350</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screen 5: Reportes -->
+        <div class="dscreen" id="ds-5">
           <div class="dsh"><span class="dsh-title">Reporte del Evento</span><span class="dsh-live"><span class="dsh-ldot"></span>Listo para exportar</span></div>
-          <div class="rep-head"><div class="re">Montenbaik Enduro Series 2026</div><div class="rf">2–3 Mayo · Parque Ludiano, Quillota · 11 profesionales</div></div>
+          <div class="rep-head"><div class="re">Montenbaik Enduro Series 2026</div><div class="rf">2–3 Mayo · Parque Ludiano, Quillota · 11 profesionales · 2 días</div></div>
           <div class="rep-grid">
             <div class="rc"><div class="rn">47</div><div class="rl">Total atenciones</div></div>
             <div class="rc"><div class="rn">5</div><div class="rl">Derivaciones</div></div>
@@ -466,20 +647,23 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
           </div>
           <div class="rb">Exportar reporte PDF / Excel</div>
         </div>
+
       </div>
     </div>
     <div class="demo-nav">
-      <button class="demo-btn" data-s="0">Atenciones</button>
-      <button class="demo-btn" data-s="1">Carros clínicos</button>
-      <button class="demo-btn" data-s="2">Medicamentos</button>
-      <button class="demo-btn" data-s="3">Reportes</button>
+      <button class="demo-btn" data-s="0">🏥 Atenciones</button>
+      <button class="demo-btn" data-s="1">🚑 Carros</button>
+      <button class="demo-btn" data-s="2">💊 Medicamentos</button>
+      <button class="demo-btn" data-s="3">🎒 Kinesiología</button>
+      <button class="demo-btn" data-s="4">💰 Valorización</button>
+      <button class="demo-btn" data-s="5">📊 Reportes</button>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- POR QUE -->
+<!-- POR QUÉ -->
 <section class="section" id="porq">
   <div class="sec-chip">¿Por qué TRIAGE360?</div>
   <h2 class="sec-title">El fin de las <em>planillas Excel</em></h2>
@@ -497,67 +681,271 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <div class="compare-row"><div class="cr-feat">Historial permanente en la nube</div><div class="cr-val bad">✗ Se puede perder</div><div class="cr-val good">✓ Siempre disponible</div></div>
     <div class="compare-row"><div class="cr-feat">Reporte profesional exportable</div><div class="cr-val bad">✗ Horas de trabajo</div><div class="cr-val good">✓ Un clic</div></div>
     <div class="compare-row"><div class="cr-feat">100% responsive en celular</div><div class="cr-val bad">✗ Difícil en móvil</div><div class="cr-val good">✓ Nativo</div></div>
-    <div class="compare-row"><div class="cr-feat">Notificaciones automáticas al equipo</div><div class="cr-val bad">✗ No existe</div><div class="cr-val good">✓ Por correo</div></div>
+    <div class="compare-row"><div class="cr-feat">Módulo kinesiología y masoterapia</div><div class="cr-val bad">✗ No existe</div><div class="cr-val good">✓ Integrado</div></div>
+    <div class="compare-row"><div class="cr-feat">Valorización del inventario en tiempo real</div><div class="cr-val bad">✗ Imposible</div><div class="cr-val good">✓ Automático</div></div>
+    <div class="compare-row"><div class="cr-feat">Análisis de costos por evento</div><div class="cr-val bad">✗ No existe</div><div class="cr-val good">✓ Con gráficos</div></div>
+    <div class="compare-row"><div class="cr-feat">Bolso Kines Maestro con precio unitario</div><div class="cr-val bad">✗ No existe</div><div class="cr-val good">✓ 30 insumos</div></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- FEATURES -->
+<!-- FEATURES 9 -->
 <section class="section" id="features">
   <div class="sec-chip">Funciones</div>
   <h2 class="sec-title">Todo en <em>una sola</em> plataforma</h2>
-  <p class="sec-sub">Desde la primera atención hasta el reporte final del evento.</p>
+  <p class="sec-sub">Desde la primera atención hasta el reporte final y la valorización completa del inventario.</p>
   <div class="feat-grid">
-    <div class="feat-card"><div class="feat-num">01</div><div class="feat-title">Atenciones multi-profesión</div><div class="feat-desc">Médico, enfermería, kinesiología, paramedicina y masoterapia. Cada profesional tiene su módulo con campos específicos para su especialidad.</div></div>
-    <div class="feat-card"><div class="feat-num">02</div><div class="feat-title">Inventario de carros clínicos</div><div class="feat-desc">Control por cajón con alertas automáticas de stock bajo. Sabe exactamente qué tiene disponible en cada carro clínico.</div></div>
-    <div class="feat-card"><div class="feat-num">03</div><div class="feat-title">Bolsos de medicamentos</div><div class="feat-desc">Seguimiento con fecha de vencimiento y alertas automáticas por correo al equipo administrador.</div></div>
-    <div class="feat-card"><div class="feat-num">04</div><div class="feat-title">Gestión de equipo</div><div class="feat-desc">Asigna profesionales a eventos, controla roles y permisos. Cada usuario accede solo a lo que le corresponde.</div></div>
-    <div class="feat-card"><div class="feat-num">05</div><div class="feat-title">Reportes exportables</div><div class="feat-desc">PDF o Excel por evento, profesional o tipo de atención. Listo para entregar al organizador en un clic.</div></div>
-    <div class="feat-card"><div class="feat-num">06</div><div class="feat-title">Seguridad de datos</div><div class="feat-desc">Autenticación segura, roles de acceso y cifrado en la nube de nivel empresarial.</div></div>
+    <div class="feat-card">
+      <div class="feat-num">01</div>
+      <div class="feat-title">Atenciones multi-profesión</div>
+      <div class="feat-desc">Médico, enfermería, kinesiología, paramedicina y masoterapia. Cada profesional tiene su módulo con campos específicos para su especialidad.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">02</div>
+      <div class="feat-title">Inventario de carros clínicos</div>
+      <div class="feat-desc">7 carros clínicos con control por cajón. Alertas automáticas de stock bajo y vencimiento. Siempre sabes qué tienes disponible en cada carro.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">03</div>
+      <div class="feat-title">Bolsos de medicamentos</div>
+      <div class="feat-desc">26 fármacos con seguimiento de vencimiento, stock mínimo y precio unitario. Alertas automáticas al equipo administrador cuando se aproxima el vencimiento.</div>
+    </div>
+    <div class="feat-card highlight">
+      <div class="feat-num">04 <span class="feat-new">NUEVO</span></div>
+      <div class="feat-title">🎒 Bolso Kines Maestro</div>
+      <div class="feat-desc">30 insumos de kinesiología con precio unitario, cantidad por bolso y valor de línea. Bolso standard valorizado en $167.100. Edición inline de cada item.</div>
+    </div>
+    <div class="feat-card highlight">
+      <div class="feat-num">05 <span class="feat-new">NUEVO</span></div>
+      <div class="feat-title">💆 Módulo de Masoterapia</div>
+      <div class="feat-desc">Registro de atenciones masivas y específicas con ficha por paciente. Módulo independiente para masoterapeutas con historial completo del evento.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">06</div>
+      <div class="feat-title">Gestión de equipo</div>
+      <div class="feat-desc">Asigna profesionales a eventos, controla roles y permisos granulares. Cada usuario accede solo a lo que le corresponde según su especialidad.</div>
+    </div>
+    <div class="feat-card highlight">
+      <div class="feat-num">07 <span class="feat-new">NUEVO</span></div>
+      <div class="feat-title">💰 Valorización e Inventario</div>
+      <div class="feat-desc">179 tipos de insumos valorizados. Costo total por evento, top medicamentos más usados, y desglose completo: $2,6M en insumos generales, $187K medicamentos, $167K kines.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">08</div>
+      <div class="feat-title">Reportes exportables</div>
+      <div class="feat-desc">PDF o Excel por evento, profesional o tipo de atención. Análisis de costos con gráficos mensuales. Listo para entregar al organizador en un clic.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">09</div>
+      <div class="feat-title">Seguridad de datos</div>
+      <div class="feat-desc">Autenticación segura con Supabase, roles de acceso granulares y cifrado en la nube de nivel empresarial. Ningún profesional ve más de lo que le corresponde.</div>
+    </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- CASOS -->
+<!-- SGTRUMAO CASE STUDY -->
+<div class="sgtrumao-wrap" id="sgtrumao">
+  <div class="sgtrumao-inner">
+    <div class="sec-chip">Caso de éxito real</div>
+    <h2 class="sec-title" style="margin-bottom:0.5rem">SGTRUMAO opera 100% <em>con TRIAGE360</em></h2>
+    <p class="sec-sub" style="margin-bottom:3rem">La empresa de cobertura médica en eventos deportivos de alta exigencia en Chile lleva todos sus eventos con TRIAGE360 desde el primer día.</p>
+    <div class="sgtrumao-grid">
+      <div>
+        <div class="sg-badge">
+          <div class="sg-badge-text">SGTRUMAO</div>
+          <div class="sg-badge-tag">Cobertura médica en eventos</div>
+        </div>
+        <div class="sg-stats">
+          <div class="sg-stat"><div class="sg-num">52</div><div class="sg-label">Eventos cubiertos</div></div>
+          <div class="sg-stat"><div class="sg-num">11</div><div class="sg-label">Profesionales</div></div>
+          <div class="sg-stat"><div class="sg-num">500+</div><div class="sg-label">Atenciones</div></div>
+          <div class="sg-stat"><div class="sg-num">$3,6M</div><div class="sg-label">Inventario</div></div>
+        </div>
+        <div style="font-size:0.78rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem">Eventos cubiertos</div>
+        <div class="sg-events">
+          <span class="sg-event-tag">Montenbaik Enduro</span>
+          <span class="sg-event-tag">Trail Running</span>
+          <span class="sg-event-tag">MTB Competencia</span>
+          <span class="sg-event-tag">Maratón</span>
+          <span class="sg-event-tag">Torneos Deportivos</span>
+          <span class="sg-event-tag">Eventos corporativos</span>
+        </div>
+        <div class="sg-contacts">
+          <div class="sg-contact">
+            <div class="sg-contact-icon">👨‍💼</div>
+            <div>
+              <div class="sg-contact-name">Alfredo Jara</div>
+              <div class="sg-contact-email">alfredo.jara@sgtrumao.cl</div>
+            </div>
+          </div>
+          <div class="sg-contact">
+            <div class="sg-contact-icon">👩‍💼</div>
+            <div>
+              <div class="sg-contact-name">Francia Muñoz</div>
+              <div class="sg-contact-email">francia.munoz@sgtrumao.cl</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sg-quote-wrap">
+          <div class="sg-quote">"TRIAGE360 cambió completamente nuestra operación. Antes perdíamos horas en planillas Excel post-evento. Hoy, al término del último participante, el reporte ya está listo para enviar al organizador. El sistema de valorización nos permite saber exactamente cuánto cuesta cada operación médica."</div>
+          <div class="sg-author">
+            <div class="sg-avatar">AJ</div>
+            <div>
+              <div class="sg-author-name">Alfredo Jara</div>
+              <div class="sg-author-role">Director — SGTRUMAO</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.25rem;box-shadow:0 2px 8px rgba(26,92,138,0.04)">
+          <div style="font-size:0.78rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem">Módulos en uso activo</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Atenciones médicas</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Kinesiología</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Masoterapia</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Carros clínicos</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Bolso Kines Maestro</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Valorización</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Gestión de equipo</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink2)"><span style="color:var(--green)">✓</span> Reportes PDF/Excel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASOS DE USO -->
 <section class="section" id="casos">
   <div class="sec-chip">Casos de uso</div>
   <h2 class="sec-title">Donde la salud <em>no puede fallar</em></h2>
-  <p class="sec-sub">De la montaña al festival masivo, TRIAGE360 se adapta a cualquier operación médica.</p>
+  <p class="sec-sub">De la montaña al festival masivo, TRIAGE360 se adapta a cualquier operación médica en terreno.</p>
   <div class="casos-grid">
-    <div class="caso-card"><div class="caso-num">Caso 01</div><div class="caso-title">Eventos de montaña</div><div class="caso-desc">MTB, trail running, enduro. Múltiples puntos de atención coordinados desde una sola pantalla.</div><span class="caso-tag">Deporte extremo</span></div>
-    <div class="caso-card"><div class="caso-num">Caso 02</div><div class="caso-title">Carreras y maratones</div><div class="caso-desc">Triage rápido y derivación oportuna en eventos de alta afluencia de participantes.</div><span class="caso-tag">Atletismo</span></div>
-    <div class="caso-card"><div class="caso-num">Caso 03</div><div class="caso-title">Festivales masivos</div><div class="caso-desc">Carpa médica con registro histórico completo durante toda la duración del evento.</div><span class="caso-tag">Eventos masivos</span></div>
-    <div class="caso-card"><div class="caso-num">Caso 04</div><div class="caso-title">Torneos deportivos</div><div class="caso-desc">Cobertura continua durante varios días con reportes por jornada para la organización.</div><span class="caso-tag">Deporte competitivo</span></div>
+    <div class="caso-card">
+      <div class="caso-num">Caso 01</div>
+      <div class="caso-title">Eventos de montaña</div>
+      <div class="caso-desc">MTB, trail running, enduro. Múltiples puntos de atención coordinados desde una sola pantalla. Bolso kines listo para traumatología de campo.</div>
+      <span class="caso-tag">Deporte extremo</span>
+    </div>
+    <div class="caso-card">
+      <div class="caso-num">Caso 02</div>
+      <div class="caso-title">Carreras y maratones</div>
+      <div class="caso-desc">Triage rápido y derivación oportuna en alta afluencia. Registro en tiempo real desde cada punto de atención con múltiples profesionales.</div>
+      <span class="caso-tag">Atletismo</span>
+    </div>
+    <div class="caso-card">
+      <div class="caso-num">Caso 03</div>
+      <div class="caso-title">Festivales masivos</div>
+      <div class="caso-desc">Carpa médica con registro histórico completo. Módulos de masoterapia masiva para grandes concentraciones de personas durante todo el evento.</div>
+      <span class="caso-tag">Eventos masivos</span>
+    </div>
+    <div class="caso-card">
+      <div class="caso-num">Caso 04</div>
+      <div class="caso-title">Torneos deportivos</div>
+      <div class="caso-desc">Cobertura continua durante varios días con reportes por jornada. Seguimiento de inventario consumido y costos reales para cada día de competencia.</div>
+      <span class="caso-tag">Deporte competitivo</span>
+    </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- PRICING SIN PRECIOS -->
+<!-- ENTERPRISE SECTION -->
+<div class="enterprise-section">
+  <div class="enterprise-inner">
+    <div>
+      <div class="ent-chip">Operaciones a escala</div>
+      <h2 class="ent-title">¿Empresa de cobertura<br>médica? <em>Hablemos</em></h2>
+      <p class="ent-sub">TRIAGE360 nació para empresas como la tuya — equipos médicos multidisciplinarios que cubren decenas de eventos al año y necesitan control total.</p>
+      <div class="ent-feats">
+        <div class="ent-feat"><div class="ent-check">✓</div>Multi-evento con historial unificado por empresa</div>
+        <div class="ent-feat"><div class="ent-check">✓</div>Branding personalizado con logo y colores de tu empresa</div>
+        <div class="ent-feat"><div class="ent-check">✓</div>Valorización completa: costos reales por evento y por mes</div>
+        <div class="ent-feat"><div class="ent-check">✓</div>Onboarding dedicado con capacitación a tu equipo</div>
+        <div class="ent-feat"><div class="ent-check">✓</div>API y exportaciones para integrar con tus sistemas</div>
+        <div class="ent-feat"><div class="ent-check">✓</div>Soporte prioritario por WhatsApp en días de evento</div>
+      </div>
+      <a href="#contact" class="ent-cta">Solicitar plan a medida →</a>
+    </div>
+    <div class="ent-cards">
+      <div class="ent-card">
+        <div class="ent-card-header">
+          <div class="ent-card-icon">📋</div>
+          <div class="ent-card-title">Historial completo por empresa</div>
+        </div>
+        <div class="ent-card-desc">Todos tus eventos en un solo panel. Busca atenciones por fecha, profesional, tipo o diagnóstico. Tu operación médica siempre documentada.</div>
+      </div>
+      <div class="ent-card">
+        <div class="ent-card-header">
+          <div class="ent-card-icon">💰</div>
+          <div class="ent-card-title">Costos reales por operación</div>
+        </div>
+        <div class="ent-card-desc">Sabe exactamente cuánto gastaste en medicamentos, insumos kines y materiales en cada evento. Información real para cotizar mejor tu próxima cobertura.</div>
+      </div>
+      <div class="ent-card">
+        <div class="ent-card-header">
+          <div class="ent-card-icon">🚀</div>
+          <div class="ent-card-title">Implementación en 48 horas</div>
+        </div>
+        <div class="ent-card-desc">Tu equipo operativo en menos de 48 horas. Onboarding personalizado, carga de inventario inicial y capacitación remota incluida en el plan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
 <section class="section" id="pricing">
   <div class="sec-chip">Planes</div>
   <h2 class="sec-title">Un plan para <em>cada operación</em></h2>
-  <p class="sec-sub">Contáctanos y te armamos el plan que mejor se adapta a tu equipo y eventos.</p>
+  <p class="sec-sub">Contáctanos y te armamos el plan que mejor se adapta a tu equipo y frecuencia de eventos.</p>
   <div class="pricing-grid">
     <div class="price-card">
       <div class="price-plan">Básico</div>
       <div class="price-period">Ideal para eventos puntuales</div>
-      <ul class="price-feats"><li>Hasta 5 profesionales</li><li>1 carro clínico</li><li>Registro de atenciones</li><li>Reporte final del evento</li><li>Soporte por correo</li></ul>
+      <ul class="price-feats">
+        <li>Hasta 5 profesionales</li>
+        <li>1 carro clínico</li>
+        <li>Registro de atenciones médicas</li>
+        <li>Bolso de medicamentos</li>
+        <li>Reporte final del evento</li>
+        <li>Soporte por correo</li>
+      </ul>
       <button class="pbtn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Solicitar información</button>
     </div>
     <div class="price-card featured">
       <div class="price-badge">Más popular</div>
       <div class="price-plan">Profesional</div>
       <div class="price-period">Para empresas con operación continua</div>
-      <ul class="price-feats"><li>Profesionales ilimitados</li><li>Hasta 5 carros clínicos</li><li>Bolsos de medicamentos</li><li>Alertas automáticas de stock</li><li>Reportes avanzados</li><li>Soporte prioritario</li></ul>
+      <ul class="price-feats">
+        <li>Profesionales ilimitados</li>
+        <li>Hasta 7 carros clínicos</li>
+        <li>Bolsos de medicamentos</li>
+        <li>Bolso Kines Maestro</li>
+        <li>Módulos kinesiología y masoterapia</li>
+        <li>Valorización de inventario</li>
+        <li>Alertas automáticas de stock</li>
+        <li>Reportes avanzados PDF/Excel</li>
+        <li>Soporte prioritario</li>
+      </ul>
       <button class="pbtn inv" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Solicitar información</button>
     </div>
     <div class="price-card">
       <div class="price-plan">Empresa</div>
       <div class="price-period">Plan a medida para grandes operaciones</div>
-      <ul class="price-feats"><li>Todo en Profesional</li><li>Eventos ilimitados</li><li>Carros ilimitados</li><li>Branding personalizado</li><li>Onboarding dedicado</li><li>API y exportaciones</li></ul>
+      <ul class="price-feats">
+        <li>Todo en Profesional</li>
+        <li>Eventos y carros ilimitados</li>
+        <li>Análisis de costos por evento</li>
+        <li>Branding personalizado</li>
+        <li>Onboarding dedicado</li>
+        <li>Soporte por WhatsApp en evento</li>
+        <li>API y exportaciones avanzadas</li>
+        <li>SLA y tiempo de respuesta garantizado</li>
+      </ul>
       <button class="pbtn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Conversemos</button>
     </div>
   </div>
@@ -574,10 +962,11 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <div class="faq-item"><div class="faq-q">¿Necesito instalar algo para usar TRIAGE360?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">No. TRIAGE360 funciona 100% en el navegador desde cualquier dispositivo. Solo necesitas conexión a internet y un usuario registrado. Sin descargas ni instalaciones.</div></div></div>
     <div class="faq-item"><div class="faq-q">¿Cuántos usuarios pueden acceder simultáneamente?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Tantos como necesites. Todo el equipo puede acceder al mismo tiempo desde sus propios dispositivos. Cada profesional ve solo la información de su rol y evento asignado.</div></div></div>
     <div class="faq-item"><div class="faq-q">¿Los datos quedan guardados si pierdo conexión?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Los datos se sincronizan automáticamente en la nube cuando recuperas conexión. Recomendamos conexión estable o datos móviles como respaldo durante el evento.</div></div></div>
-    <div class="faq-item"><div class="faq-q">¿Puedo exportar reportes para entregar al cliente?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí. TRIAGE360 genera reportes en PDF y Excel con todas las atenciones, insumos y estadísticas del evento. Listos para entregar directamente al organizador en un clic.</div></div></div>
-    <div class="faq-item"><div class="faq-q">¿Es segura la información de los pacientes?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí. Datos con cifrado empresarial, autenticación segura y roles de acceso. Ningún profesional puede ver información fuera de su evento o especialidad.</div></div></div>
-    <div class="faq-item"><div class="faq-q">¿Puedo probar TRIAGE360 antes de contratar?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Por supuesto. Contáctanos y te hacemos una demo personalizada con tu equipo, usando datos reales de tu operación. Sin compromisos.</div></div></div>
-    <div class="faq-item"><div class="faq-q">¿Funciona para empresas de cobertura médica en Chile?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí, está diseñado exactamente para eso. TRIAGE360 nació en Chile y está optimizado para la operación real de equipos médicos en terreno en eventos nacionales.</div></div></div>
+    <div class="faq-item"><div class="faq-q">¿Qué incluye el sistema de valorización de inventario?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">TRIAGE360 valoriza los 179 tipos de insumos en 3 categorías: 26 medicamentos ($187.000), Bolso Kines Maestro con 30 items ($167.100) y 123 insumos generales ($2.259.350). El dashboard muestra el valor total en tiempo real y el costo por evento.</div></div></div>
+    <div class="faq-item"><div class="faq-q">¿Puedo exportar reportes para entregar al cliente?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí. TRIAGE360 genera reportes en PDF y Excel con todas las atenciones, insumos y estadísticas del evento. Incluye desglose de costos reales. Listos para entregar al organizador en un clic.</div></div></div>
+    <div class="faq-item"><div class="faq-q">¿Cómo funciona el módulo de kinesiología?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Kinesiología tiene su módulo independiente con ficha de atención específica: diagnóstico, tratamiento, insumos del bolso kines usados. El Bolso Kines Maestro tiene 30 insumos con precio unitario y cantidad por bolso, con un valor total de $167.100 actualizable desde el panel de administración.</div></div></div>
+    <div class="faq-item"><div class="faq-q">¿Es segura la información de los pacientes?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí. Datos con cifrado empresarial via Supabase, autenticación segura y roles de acceso. Ningún profesional puede ver información fuera de su evento o especialidad.</div></div></div>
+    <div class="faq-item"><div class="faq-q">¿Funciona para empresas de cobertura médica en Chile?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Sí, está diseñado exactamente para eso. TRIAGE360 nació en Chile con SGTRUMAO como cliente inicial, optimizado para la operación real de equipos médicos multidisciplinarios en eventos nacionales de todo tipo.</div></div></div>
   </div>
 </section>
 
@@ -587,18 +976,53 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <div>
       <div class="sec-chip" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)">Contacto</div>
       <div class="contact-title">¿Tienes un evento <em>próximo?</em></div>
-      <div class="contact-sub">Escríbenos y te mostramos cómo TRIAGE360 transforma tu cobertura médica.</div>
-      <div class="contact-info-item"><div class="cii-icon">✉</div><div class="cii-text">contacto@triage360.cl</div></div>
-      <div class="contact-info-item"><div class="cii-icon">📍</div><div class="cii-text">Santiago, Chile — Cobertura nacional</div></div>
-      <div class="contact-info-item"><div class="cii-icon">⏱</div><div class="cii-text">Respondemos en menos de 24 horas hábiles</div></div>
+      <div class="contact-sub">Escríbenos y te mostramos cómo TRIAGE360 transforma tu cobertura médica. Respondemos en menos de 24 horas.</div>
+      <div class="contact-info-item">
+        <div class="cii-icon">✉</div>
+        <div>
+          <div class="cii-text">contacto@triage360.cl</div>
+          <div class="cii-sub">Canal general</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="cii-icon">👨‍💼</div>
+        <div>
+          <div class="cii-text">alfredo.jara@sgtrumao.cl</div>
+          <div class="cii-sub">Alfredo Jara · Director SGTRUMAO</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="cii-icon">👩‍💼</div>
+        <div>
+          <div class="cii-text">francia.munoz@sgtrumao.cl</div>
+          <div class="cii-sub">Francia Muñoz · Coordinadora</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="cii-icon">📍</div>
+        <div>
+          <div class="cii-text">Santiago, Chile</div>
+          <div class="cii-sub">Cobertura nacional</div>
+        </div>
+      </div>
     </div>
     <div>
       <div class="form-row">
         <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
         <div class="fg"><label>Correo</label><input type="email" placeholder="tu@empresa.cl"></div>
       </div>
-      <div class="fg"><label>Tipo de evento</label><select><option value="">Selecciona...</option><option>Carrera / Maratón</option><option>MTB / Enduro</option><option>Festival / Concierto</option><option>Torneo deportivo</option><option>Otro</option></select></div>
-      <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu evento, cantidad de personas y equipo médico..."></textarea></div>
+      <div class="fg"><label>Tipo de evento</label>
+        <select>
+          <option value="">Selecciona...</option>
+          <option>Carrera / Maratón</option>
+          <option>MTB / Enduro</option>
+          <option>Festival / Concierto</option>
+          <option>Torneo deportivo</option>
+          <option>Empresa de cobertura médica</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu evento, cantidad de participantes, equipo médico y qué módulos te interesan..."></textarea></div>
       <button class="btn-submit">Enviar mensaje →</button>
     </div>
   </div>
@@ -609,46 +1033,84 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <div class="footer-logo-mark">T</div>
     <div class="footer-logo-text">TRIAGE<span>360</span></div>
   </div>
-  <div class="footer-copy">© 2026 TRIAGE360. Todos los derechos reservados.</div>
+  <div class="footer-links">
+    <a href="#demo">Demo</a>
+    <a href="#features">Funciones</a>
+    <a href="#pricing">Planes</a>
+    <a href="#contact">Contacto</a>
+    <a href="https://triage360.vercel.app">Acceder</a>
+  </div>
+  <div class="footer-copy">© 2026 TRIAGE360 · Desarrollado en Chile</div>
 </footer>
 
 <script>
+// Modal
 document.getElementById('openVideo').addEventListener('click',()=>document.getElementById('videoModal').classList.add('open'));
 document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('videoModal').classList.remove('open'));
 document.getElementById('videoModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
 
-const dscreens=document.querySelectorAll('.dscreen');
-const dbtns=document.querySelectorAll('.demo-btn');
-const dmenus=[0,1,2,3].map(i=>document.getElementById('dm-'+i));
-const durls=['triage360.cl — Atenciones','triage360.cl — Carros Clínicos','triage360.cl — Medicamentos','triage360.cl — Reportes'];
-let cur=0,autoT;
+// Demo — 6 pantallas
+const TOTAL_SCREENS = 6;
+const dscreens = document.querySelectorAll('.dscreen');
+const dbtns    = document.querySelectorAll('.demo-btn');
+const dmenus   = Array.from({length:TOTAL_SCREENS},(_,i)=>document.getElementById('dm-'+i));
+const durls    = [
+  'triage360.cl — Atenciones en Carpa Médica',
+  'triage360.cl — Carros Clínicos',
+  'triage360.cl — Bolsos de Medicamentos',
+  'triage360.cl — Kinesiología · Bolso Kines Maestro',
+  'triage360.cl — Valorización del Inventario',
+  'triage360.cl — Reportes del Evento',
+];
+let cur=0, autoT;
 function show(n){
   dscreens.forEach(s=>s.classList.remove('on'));
   dbtns.forEach(b=>b.classList.remove('active'));
-  dmenus.forEach(m=>m.classList.remove('active'));
-  dscreens[n].classList.add('on');dbtns[n].classList.add('active');dmenus[n].classList.add('active');
-  document.getElementById('demo-url').textContent=durls[n];cur=n;
+  dmenus.forEach(m=>{if(m)m.classList.remove('active')});
+  dscreens[n].classList.add('on');
+  dbtns[n].classList.add('active');
+  if(dmenus[n])dmenus[n].classList.add('active');
+  document.getElementById('demo-url').textContent=durls[n];
+  cur=n;
 }
-dbtns.forEach(b=>b.addEventListener('click',()=>{clearInterval(autoT);show(+b.dataset.s);autoT=setInterval(()=>show((cur+1)%4),4500)}));
-show(0);autoT=setInterval(()=>show((cur+1)%4),4500);
+dbtns.forEach(b=>b.addEventListener('click',()=>{
+  clearInterval(autoT);
+  show(+b.dataset.s);
+  autoT=setInterval(()=>show((cur+1)%TOTAL_SCREENS),5000);
+}));
+show(0);
+autoT=setInterval(()=>show((cur+1)%TOTAL_SCREENS),5000);
 
-function count(el,target,dur){if(!el)return;let s=0,step=target/60,t=setInterval(()=>{s=Math.min(s+step,target);el.textContent=Math.round(s);if(s>=target)clearInterval(t)},dur/60)}
+// Contadores
+function count(el,target,dur){
+  if(!el)return;
+  let s=0,step=target/60;
+  const t=setInterval(()=>{
+    s=Math.min(s+step,target);
+    el.textContent=Math.round(s);
+    if(s>=target)clearInterval(t);
+  },dur/60);
+}
 setTimeout(()=>{
-  count(document.getElementById('hm1'),47,1500);
-  count(document.getElementById('hm2'),11,1500);
-  count(document.getElementById('hm3'),324,1500);
-  count(document.getElementById('dc1'),12,1200);
-  count(document.getElementById('dc2'),2,1200);
-  count(document.getElementById('dc3'),9,1200);
-  count(document.getElementById('da1'),12,1200);
-  count(document.getElementById('da2'),2,1200);
-  count(document.getElementById('da3'),9,1200);
+  count(document.getElementById('hm1'),52,1600);
+  count(document.getElementById('hm2'),11,1200);
+  count(document.getElementById('hm3'),524,1800);
+  count(document.getElementById('dc1'),47,1400);
+  count(document.getElementById('dc2'),5,1000);
+  count(document.getElementById('dc3'),38,1400);
+  count(document.getElementById('da1'),47,1400);
+  count(document.getElementById('da2'),5,1000);
+  count(document.getElementById('da3'),38,1400);
 },500);
 
+// FAQ
 document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',()=>{
     const item=q.parentElement,a=item.querySelector('.faq-a'),open=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0'});
+    document.querySelectorAll('.faq-item').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight='0';
+    });
     if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
   });
 });
