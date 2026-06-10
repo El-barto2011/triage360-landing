@@ -9,7 +9,6 @@
 <!-- ═══════════════════════════════════════════════ -->
 <title>Cobertura Médica para Eventos en Chile | TRIAGE360</title>
 <meta name="description" content="TRIAGE360: plataforma de gestión para cobertura médica en eventos. Paramédicos, médicos y kinesiólogos coordinados en tiempo real. +52 eventos cubiertos en Chile. Solicita demo.">
-<meta name="keywords" content="cobertura médica eventos Chile, ambulancias para eventos, paramédicos eventos, puesto médico eventos deportivos, cobertura sanitaria eventos, rescate deportivo, atención prehospitalaria, operativo médico, médico para eventos, empresa cobertura médica Santiago">
 <link rel="canonical" href="https://www.triage360.cl/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="TRIAGE360 — SGTRUMAO SpA">
@@ -569,26 +568,6 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
 </head>
 <body>
 
-<!-- MODAL VIDEO -->
-<div class="modal-overlay" id="videoModal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose">✕</button>
-    <div class="vp">
-      <div class="vp-dots"></div>
-      <div class="vp-btn"><div class="vp-tri"></div></div>
-      <div class="vp-label">Demo de TRIAGE360 en acción</div>
-      <div class="vp-sub">Video disponible próximamente · Solicita demo en vivo</div>
-    </div>
-    <div class="modal-footer">
-      <div>
-        <div class="mf-title">¿Prefieres verlo en vivo?</div>
-        <div class="mf-sub">Te mostramos la plataforma con datos reales de tu operación</div>
-      </div>
-      <button class="btn-blue" onclick="document.getElementById('videoModal').classList.remove('open');document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Solicitar demo →</button>
-    </div>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
@@ -618,14 +597,14 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
       <h1>Cobertura Médica<br>para <em>Eventos</em> en Chile</h1>
       <p class="hero-sub">TRIAGE360 gestiona en tiempo real las atenciones, inventario clínico y equipo médico de tu operación. Paramédicos, médicos y kinesiólogos coordinados desde una sola plataforma.</p>
       <div class="hero-btns">
-        <button class="btn-white" id="openVideo"><div class="play-circle"><div class="play-tri"></div></div>Ver demo</button>
+        <a href="#demo" class="btn-white"><div class="play-circle"><div class="play-tri"></div></div>Ver demo</a>
         <a href="#contact" class="btn-outline-white">Solicitar demo en vivo</a>
       </div>
       <div class="hero-stats">
-        <div class="hs"><div class="hs-num" id="hm1">0</div><div class="hs-label">Eventos cubiertos</div></div>
-        <div class="hs"><div class="hs-num" id="hm2">0</div><div class="hs-label">Profesionales activos</div></div>
-        <div class="hs"><div class="hs-num" id="hm3">0</div><div class="hs-label">Atenciones registradas</div></div>
-        <div class="hs"><div class="hs-num">$3,6M</div><div class="hs-label">Inventario valorizado</div></div>
+        <div class="hs"><div class="hs-num" id="hm1">52</div><div class="hs-label">Eventos cubiertos</div></div>
+        <div class="hs"><div class="hs-num" id="hm2">11</div><div class="hs-label">Profesionales activos</div></div>
+        <div class="hs"><div class="hs-num" id="hm3">524</div><div class="hs-label">Atenciones registradas</div></div>
+        <div class="hs"><div class="hs-num">$2,6M</div><div class="hs-label">Inventario valorizado</div></div>
       </div>
     </div>
     <div>
@@ -642,9 +621,9 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
             <div class="hc-live"><span class="hc-ldot"></span>En vivo</div>
           </div>
           <div class="hc-stats">
-            <div class="hc-stat"><div class="hc-snum" id="dc1">0</div><div class="hc-slabel">Atenciones</div></div>
-            <div class="hc-stat"><div class="hc-snum" id="dc2">0</div><div class="hc-slabel">Derivaciones</div></div>
-            <div class="hc-stat"><div class="hc-snum" id="dc3">0</div><div class="hc-slabel">Altas</div></div>
+            <div class="hc-stat"><div class="hc-snum" id="dc1">47</div><div class="hc-slabel">Atenciones</div></div>
+            <div class="hc-stat"><div class="hc-snum" id="dc2">5</div><div class="hc-slabel">Derivaciones</div></div>
+            <div class="hc-stat"><div class="hc-snum" id="dc3">38</div><div class="hc-slabel">Altas</div></div>
           </div>
           <div class="hc-rows">
             <div class="hc-row"><div><div class="hc-name">C. Ramírez</div><div class="hc-prof">Dr. Vásquez · Médico</div></div><span class="hc-badge ok">Alta</span></div>
@@ -703,7 +682,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     </div>
     <div class="ms-div"></div>
     <div class="ms-item">
-      <div class="ms-num">$3,6M</div>
+      <div class="ms-num">$2,6M</div>
       <div class="ms-label">Inventario valorizado</div>
     </div>
     <div class="ms-div"></div>
@@ -744,9 +723,9 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
         <div class="dscreen" id="ds-0">
           <div class="dsh"><span class="dsh-title">Atenciones en Carpa Médica</span><span class="dsh-live"><span class="dsh-ldot"></span>En vivo</span></div>
           <div class="d-cards">
-            <div class="d-card"><div class="d-num" id="da1">0</div><div class="d-label">Atenciones hoy</div></div>
-            <div class="d-card"><div class="d-num" id="da2">0</div><div class="d-label">Derivaciones</div></div>
-            <div class="d-card"><div class="d-num" id="da3">0</div><div class="d-label">Altas médicas</div></div>
+            <div class="d-card"><div class="d-num" id="da1">47</div><div class="d-label">Atenciones hoy</div></div>
+            <div class="d-card"><div class="d-num" id="da2">5</div><div class="d-label">Derivaciones</div></div>
+            <div class="d-card"><div class="d-num" id="da3">38</div><div class="d-label">Altas médicas</div></div>
           </div>
           <table class="d-table">
             <thead><tr><th>Paciente</th><th>Profesional</th><th>Diagnóstico</th><th>Estado</th></tr></thead>
@@ -801,7 +780,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
         <div class="dscreen" id="ds-4">
           <div class="dsh"><span class="dsh-title">Valorización del Inventario</span><span class="dsh-live"><span class="dsh-ldot"></span>Actualizado</span></div>
           <div class="inv-kpi-grid">
-            <div class="inv-kpi"><div class="inv-kpi-num">$3,6M</div><div class="inv-kpi-label">Valor total inventario</div></div>
+            <div class="inv-kpi"><div class="inv-kpi-num">$2,6M</div><div class="inv-kpi-label">Valor total inventario</div></div>
             <div class="inv-kpi"><div class="inv-kpi-num">179</div><div class="inv-kpi-label">Tipos de insumos</div></div>
             <div class="inv-kpi"><div class="inv-kpi-num">82%</div><div class="inv-kpi-label">Items valorizados</div></div>
           </div>
@@ -922,7 +901,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <div class="feat-card highlight">
       <div class="feat-num">07 <span class="feat-new">NUEVO</span></div>
       <div class="feat-title">💰 Valorización e Inventario</div>
-      <div class="feat-desc">179 tipos de insumos valorizados. Costo total por evento, top medicamentos más usados, y desglose completo: $2,6M en insumos generales, $187K medicamentos, $167K kines.</div>
+      <div class="feat-desc">179 tipos de insumos valorizados. Costo total por evento, top medicamentos más usados, y desglose completo: $2,26M en insumos generales, $187K medicamentos, $167K kines.</div>
     </div>
     <div class="feat-card">
       <div class="feat-num">08</div>
@@ -955,7 +934,7 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
           <div class="sg-stat"><div class="sg-num">52</div><div class="sg-label">Eventos cubiertos</div></div>
           <div class="sg-stat"><div class="sg-num">11</div><div class="sg-label">Profesionales</div></div>
           <div class="sg-stat"><div class="sg-num">500+</div><div class="sg-label">Atenciones</div></div>
-          <div class="sg-stat"><div class="sg-num">$3,6M</div><div class="sg-label">Inventario</div></div>
+          <div class="sg-stat"><div class="sg-num">$2,6M</div><div class="sg-label">Inventario</div></div>
         </div>
         <div style="font-size:0.78rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem">Eventos cubiertos</div>
         <div class="sg-events">
@@ -1236,17 +1215,14 @@ footer{background:#0B2D45;padding:2.25rem 5rem;display:flex;align-items:center;j
     <a href="#features">Funciones</a>
     <a href="#pricing">Planes</a>
     <a href="#contact">Contacto</a>
+    <a href="/privacidad/">Privacidad</a>
+    <a href="/terminos/">Términos</a>
     <a href="https://triage360.vercel.app">Acceder</a>
   </div>
   <div class="footer-copy">© 2026 TRIAGE360 · Desarrollado en Chile</div>
 </footer>
 
 <script>
-// Modal
-document.getElementById('openVideo').addEventListener('click',()=>document.getElementById('videoModal').classList.add('open'));
-document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('videoModal').classList.remove('open'));
-document.getElementById('videoModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
-
 // Demo — 6 pantallas
 const TOTAL_SCREENS = 6;
 const dscreens = document.querySelectorAll('.dscreen');
