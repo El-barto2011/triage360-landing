@@ -210,14 +210,15 @@ footer{padding:40px 0;text-align:center}
 /* SPLASH DE CARGA: el logo se arma al centro y revela la página */
 #splash{position:fixed;inset:0;z-index:9999;background:var(--crema);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s ease}
 #splash.oculto{opacity:0;pointer-events:none}
-@keyframes spDibujar{to{stroke-dashoffset:0}}
-@keyframes spPop{to{opacity:1;transform:scale(1)}}
-@keyframes spTexto{to{opacity:1;transform:translateY(0)}}
-.sp-arco{stroke-dasharray:100;stroke-dashoffset:100;animation:spDibujar .45s ease-out forwards}
+@keyframes spDibujar{from{stroke-dashoffset:62.2}to{stroke-dashoffset:0}}
+@keyframes spPop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes spTexto{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Estado base = logo VISIBLE; la animación lo oculta solo al inicio (fill backwards). Si un navegador no anima, el logo igual se ve. */
+.sp-arco{stroke-dasharray:62.2;stroke-dashoffset:0;animation:spDibujar .45s ease-out backwards}
 .sp-a2{animation-delay:.35s}
 .sp-a3{animation-delay:.7s}
-.sp-cruz{opacity:0;transform:scale(.5);transform-box:fill-box;transform-origin:center;animation:spPop .35s cubic-bezier(.34,1.56,.64,1) 1.05s forwards}
-.sp-nombre{opacity:0;transform:translateY(8px);animation:spTexto .45s ease-out 1.3s forwards;font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink)}
+.sp-cruz{transform-box:fill-box;transform-origin:center;animation:spPop .35s cubic-bezier(.34,1.56,.64,1) 1.05s backwards}
+.sp-nombre{animation:spTexto .45s ease-out 1.3s backwards;font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink)}
 .sp-nombre span{color:var(--teal)}
 @media (prefers-reduced-motion: reduce){
   .sp-arco{animation:none;stroke-dashoffset:0}
@@ -246,9 +247,9 @@ footer{padding:40px 0;text-align:center}
 <div id="splash" aria-hidden="true">
   <svg width="110" height="110" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g>
-      <path class="sp-arco" d="M 50 16 A 34 34 0 0 1 82.92 58.51" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round" pathLength="100"/>
-      <path class="sp-arco sp-a2" d="M 79.44 67 A 34 34 0 0 1 26.17 74.25" fill="none" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" pathLength="100"/>
-      <path class="sp-arco sp-a3" d="M 20.56 67 A 34 34 0 0 1 40.92 17.24" fill="none" stroke="#EF4444" stroke-width="10" stroke-linecap="round" pathLength="100"/>
+      <path class="sp-arco" d="M 50 16 A 34 34 0 0 1 82.92 58.51" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+      <path class="sp-arco sp-a2" d="M 79.44 67 A 34 34 0 0 1 26.17 74.25" fill="none" stroke="#FBBF24" stroke-width="10" stroke-linecap="round"/>
+      <path class="sp-arco sp-a3" d="M 20.56 67 A 34 34 0 0 1 40.92 17.24" fill="none" stroke="#EF4444" stroke-width="10" stroke-linecap="round"/>
     </g>
     <g class="sp-cruz">
       <rect x="37" y="44" width="26" height="13" rx="3.5" fill="#0E7C6E"/>
@@ -273,8 +274,8 @@ footer{padding:40px 0;text-align:center}
   // Cierra cuando la ÚLTIMA animación (el nombre) realmente terminó — así nunca se corta en celulares lentos
   var nombre = s.querySelector('.sp-nombre');
   if (nombre) nombre.addEventListener('animationend', function(){ cerrar(350); });
-  // Respaldo por si algún navegador no dispara el evento
-  setTimeout(function(){ cerrar(0); }, 4500);
+  // Respaldo por si algún navegador no dispara el evento o no anima
+  setTimeout(function(){ cerrar(0); }, 3200);
 })();
 </script>
 
