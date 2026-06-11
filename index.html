@@ -260,15 +260,21 @@ footer{padding:40px 0;text-align:center}
 <script>
 (function(){
   var s = document.getElementById('splash');
-  try {
-    if (sessionStorage.getItem('t360_splash')) { s.style.display = 'none'; return; }
-    sessionStorage.setItem('t360_splash', '1');
-  } catch (e) {}
+  var cerrado = false;
+  function cerrar(espera){
+    if (cerrado) return; cerrado = true;
+    setTimeout(function(){
+      s.classList.add('oculto');
+      setTimeout(function(){ s.style.display = 'none'; }, 550);
+    }, espera || 0);
+  }
   var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  setTimeout(function(){
-    s.classList.add('oculto');
-    setTimeout(function(){ s.style.display = 'none'; }, 550);
-  }, reducido ? 400 : 1950);
+  if (reducido) { cerrar(400); return; }
+  // Cierra cuando la ÚLTIMA animación (el nombre) realmente terminó — así nunca se corta en celulares lentos
+  var nombre = s.querySelector('.sp-nombre');
+  if (nombre) nombre.addEventListener('animationend', function(){ cerrar(350); });
+  // Respaldo por si algún navegador no dispara el evento
+  setTimeout(function(){ cerrar(0); }, 4500);
 })();
 </script>
 
