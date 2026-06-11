@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>TRIAGE360</title>
+  <style>
+    @keyframes dibujar { to { stroke-dasharray: 62 152; } }
+    @keyframes aparecer { to { opacity: 1; transform: scale(1); } }
+    .arco { stroke-dasharray: 0 214; animation: dibujar .5s ease-out forwards; }
+    .a2 { animation-delay: .4s; }
+    .a3 { animation-delay: .8s; }
+    .cruz { opacity: 0; transform: scale(.5); transform-box: fill-box; transform-origin: center; animation: aparecer .35s cubic-bezier(.34,1.56,.64,1) 1.2s forwards; }
+    @media (prefers-reduced-motion: reduce) {
+      .arco { animation: none; stroke-dasharray: 62 152; }
+      .cruz { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+  <g transform="rotate(-90 50 50)">
+    <circle class="arco" cx="50" cy="50" r="34" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+    <circle class="arco a2" cx="50" cy="50" r="34" fill="none" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" stroke-dashoffset="-71"/>
+    <circle class="arco a3" cx="50" cy="50" r="34" fill="none" stroke="#EF4444" stroke-width="10" stroke-linecap="round" stroke-dashoffset="-142"/>
+  </g>
+  <g class="cruz">
+    <rect x="37" y="44" width="26" height="13" rx="3.5" fill="#0E7C6E"/>
+    <rect x="43.5" y="37.5" width="13" height="26" rx="3.5" fill="#0E7C6E"/>
+  </g>
+</svg>
