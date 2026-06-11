@@ -213,12 +213,17 @@ footer{padding:40px 0;text-align:center}
 @keyframes spDibujar{from{stroke-dashoffset:62.2}to{stroke-dashoffset:0}}
 @keyframes spPop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
 @keyframes spTexto{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-/* Estado base = logo VISIBLE; la animación lo oculta solo al inicio (fill backwards). Si un navegador no anima, el logo igual se ve. */
-.sp-arco{stroke-dasharray:62.2;stroke-dashoffset:0;animation:spDibujar .45s ease-out backwards}
-.sp-a2{animation-delay:.35s}
-.sp-a3{animation-delay:.7s}
-.sp-cruz{transform-box:fill-box;transform-origin:center;animation:spPop .35s cubic-bezier(.34,1.56,.64,1) 1.05s backwards}
-.sp-nombre{animation:spTexto .45s ease-out 1.3s backwards;font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink)}
+/* Estado base = logo VISIBLE y estático. La animación SOLO se activa (clase .anima)
+   cuando el JS comprueba que el navegador está renderizando frames de verdad.
+   Así nunca puede quedar la pantalla vacía, en ningún dispositivo. */
+.sp-arco{stroke-dasharray:62.2;stroke-dashoffset:0}
+.sp-cruz{transform-box:fill-box;transform-origin:center}
+.sp-nombre{font-weight:800;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink)}
+#splash.anima .sp-arco{animation:spDibujar .45s ease-out backwards}
+#splash.anima .sp-a2{animation-delay:.35s}
+#splash.anima .sp-a3{animation-delay:.7s}
+#splash.anima .sp-cruz{animation:spPop .35s cubic-bezier(.34,1.56,.64,1) 1.05s backwards}
+#splash.anima .sp-nombre{animation:spTexto .45s ease-out 1.3s backwards}
 .sp-nombre span{color:var(--teal)}
 @media (prefers-reduced-motion: reduce){
   .sp-arco{animation:none;stroke-dashoffset:0}
@@ -271,17 +276,25 @@ footer{padding:40px 0;text-align:center}
   }
   var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducido) { cerrar(400); return; }
-  // Cierra cuando la ÚLTIMA animación (el nombre) realmente terminó — así nunca se corta en celulares lentos
-  var nombre = s.querySelector('.sp-nombre');
-  if (nombre) nombre.addEventListener('animationend', function(){ cerrar(350); });
-  // Respaldo por si algún navegador no dispara el evento o no anima
+  // Activa la animación SOLO si el navegador está renderizando frames de verdad
+  // (2 frames seguidos). Si no, el logo queda visible estático y el splash cierra corto.
+  var animado = false;
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    animado = true;
+    s.classList.add('anima');
+    var nombre = s.querySelector('.sp-nombre');
+    if (nombre) nombre.addEventListener('animationend', function(){ cerrar(350); });
+  }); });
+  // Si en 600ms no hubo frames (navegador sin animación), cierra altiro con el logo estático
+  setTimeout(function(){ if (!animado) cerrar(500); }, 600);
+  // Respaldo final pase lo que pase
   setTimeout(function(){ cerrar(0); }, 3200);
 })();
 </script>
 
 <nav>
   <div class="nav-in">
-    <a href="#" class="logo" style="display:flex;align-items:center;gap:9px"><img src="/img/isotipo-animado.svg" alt="" width="30" height="30" style="display:block">TRIAGE<span>360</span></a>
+    <a href="#" class="logo" style="display:flex;align-items:center;gap:9px"><img src="/img/isotipo-triage360.svg" alt="" width="30" height="30" style="display:block">TRIAGE<span>360</span></a>
     <ul class="nav-links">
       <li><a href="#como">Cómo funciona</a></li>
       <li><a href="#demo">Demo</a></li>
