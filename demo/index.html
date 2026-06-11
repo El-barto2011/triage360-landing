@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Interactivo | TRIAGE360</title>
+<meta name="description" content="Prueba TRIAGE360 sin registrarte: demo interactivo con datos ficticios. Registra atenciones, controla inventario y genera reportes como en un evento real.">
+<link rel="canonical" href="https://www.triage360.cl/demo/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Demo Interactivo | TRIAGE360">
+<meta property="og:description" content="Prueba la plataforma de gestión clínica para eventos. Sin registro, con datos ficticios.">
+<meta property="og:url" content="https://www.triage360.cl/demo/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;--border:#30363d;
+  --accent:#00c2a8;--accent-dim:#00c2a820;--red:#f85149;--red-dim:#f8514918;
+  --yellow:#d29922;--yellow-dim:#d2992218;--green:#3fb950;--green-dim:#3fb95018;
+  --text:#e6edf3;--muted:#8b949e;--faint:#6e7681;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.demo-banner{background:linear-gradient(90deg,#00c2a8,#00917e);color:#06231f;padding:9px 16px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:13px;font-weight:700;position:sticky;top:0;z-index:300}
+.demo-banner a{background:#06231f;color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:5px 14px;border-radius:6px;white-space:nowrap}
+.layout{display:flex;min-height:calc(100vh - 40px)}
+.sidebar{width:215px;background:var(--surface);border-right:1px solid var(--border);flex-shrink:0;display:flex;flex-direction:column}
+.logo{padding:20px;border-bottom:1px solid var(--border)}
+.logo-t{font-size:19px;font-weight:900;color:var(--accent);letter-spacing:.5px}
+.logo-t span{color:var(--text)}
+.logo-s{font-size:10px;color:var(--faint);margin-top:3px}
+.evento-box{padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.evento-lbl{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.evento-nom{font-size:12px;font-weight:700;color:var(--accent)}
+.evento-fec{font-size:10px;color:var(--muted)}
+nav{padding:10px;flex:1}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:2px;color:var(--muted);font-size:13px;border:1px solid transparent;transition:all .12s}
+.nav-item:hover{background:var(--surface2)}
+.nav-item.act{background:var(--accent-dim);color:var(--accent);font-weight:600;border-color:#00c2a830}
+.main{flex:1;overflow:auto;padding:24px}
+.titulo{font-size:21px;font-weight:800;letter-spacing:-.5px}
+.sub{font-size:12px;color:var(--muted);margin-top:3px;margin-bottom:20px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px 16px;border-left:3px solid var(--accent)}
+.kpi-n{font-size:24px;font-weight:800;color:var(--accent)}
+.kpi-l{font-size:10px;color:var(--muted);margin-top:3px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px}
+.card-t{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;padding:7px 10px;border-bottom:1px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid #30363d40;font-size:13px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase}
+.b-verde{background:var(--green-dim);color:var(--green)}
+.b-amarillo{background:var(--yellow-dim);color:var(--yellow)}
+.b-rojo{background:var(--red-dim);color:var(--red)}
+.b-ok{background:var(--green-dim);color:var(--green)}
+.b-bajo{background:var(--yellow-dim);color:var(--yellow)}
+.btn{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--accent);color:#06231f;font-family:'DM Sans',sans-serif}
+.btn:hover{filter:brightness(1.1)}
+.btn-ghost{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.vista{display:none}
+.vista.act{display:block}
+.carros{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.carro{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:14px}
+.carro-n{font-size:13px;font-weight:700;margin-bottom:8px}
+.barra{background:var(--border);height:6px;border-radius:99px;overflow:hidden;margin-bottom:6px}
+.barra div{height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+.carro-info{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.carro-items{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+.c-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:6px 9px}
+.c-item button{background:var(--accent-dim);color:var(--accent);border:none;border-radius:5px;font-size:11px;font-weight:800;padding:3px 9px;cursor:pointer}
+.modal{position:fixed;inset:0;background:#000000a8;display:none;align-items:center;justify-content:center;z-index:400;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;width:460px;max-width:100%;max-height:92vh;overflow:auto}
+.f-lbl{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:12px 0 5px}
+input,select,textarea{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-size:13px;width:100%;outline:none;font-family:'DM Sans',sans-serif}
+.triaje-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tri{flex:1;padding:8px 4px;border-radius:8px;border:2px solid var(--border);background:var(--surface2);color:var(--muted);font-weight:800;font-size:11px;cursor:pointer;min-width:70px}
+.tri.sel-VERDE{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+.tri.sel-AMARILLO{border-color:var(--yellow);color:var(--yellow);background:var(--yellow-dim)}
+.tri.sel-ROJO{border-color:var(--red);color:var(--red);background:var(--red-dim)}
+.alerta-alergia{display:none;background:var(--red-dim);border:1px solid var(--red);border-radius:8px;padding:9px 12px;font-size:12px;font-weight:800;color:var(--red);margin-top:8px}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--surface);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:10px;padding:13px 18px;font-size:13px;font-weight:600;z-index:500;display:none;max-width:320px;box-shadow:0 8px 30px #00000080}
+.val-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;margin-bottom:8px}
+.val-bar{flex:1;max-width:140px;background:var(--border);height:5px;border-radius:99px;margin:0 10px}
+.val-bar div{height:100%;background:var(--accent);border-radius:99px}
+.hamb{display:none}
+@media(max-width:760px){
+  .sidebar{position:fixed;left:-220px;top:40px;bottom:0;z-index:350;transition:left .25s}
+  .sidebar.open{left:0}
+  .hamb{display:block;position:fixed;bottom:18px;left:18px;z-index:360;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#06231f;border:none;font-size:20px;font-weight:900;box-shadow:0 4px 16px #00000080;cursor:pointer}
+  .main{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <span>🧪 MODO DEMO — datos ficticios, juega sin miedo</span>
+  <a href="https://www.triage360.cl/#contact">Quiero TRIAGE360 para mi operación →</a>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <div class="logo-t">TRIAGE<span>360</span></div>
+      <div class="logo-s">Gestión clínica inteligente</div>
+    </div>
+    <div class="evento-box">
+      <div class="evento-lbl">Evento activo</div>
+      <div class="evento-nom">🟢 Maratón Costa Azul 2026</div>
+      <div class="evento-fec">Hoy · 2.400 corredores · 8 profesionales</div>
+    </div>
+    <nav>
+      <div class="nav-item act" data-v="dashboard">📊 Dashboard</div>
+      <div class="nav-item" data-v="atenciones">🏥 Atenciones</div>
+      <div class="nav-item" data-v="carros">🚑 Carros Clínicos</div>
+      <div class="nav-item" data-v="medicamentos">💊 Medicamentos</div>
+      <div class="nav-item" data-v="valorizacion">💰 Valorización</div>
+      <div class="nav-item" data-v="reporte">📄 Reporte</div>
+    </nav>
+    <div style="padding:14px;border-top:1px solid var(--border);font-size:10px;color:var(--faint)">
+      Demo pública · <a href="https://www.triage360.cl" style="color:var(--accent)">triage360.cl</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="vista act" id="v-dashboard">
+      <div class="titulo">Dashboard</div>
+      <div class="sub">Maratón Costa Azul 2026 · en vivo</div>
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-n" id="k-at">0</div><div class="kpi-l">Atenciones hoy</div></div>
+        <div class="kpi"><div class="kpi-n" id="k-der">0</div><div class="kpi-l">Derivaciones</div></div>
+        <div class="kpi"><div class="kpi-n" id="k-altas">0</div><div class="kpi-l">Altas</div></div>
+        <div class="kpi"><div class="kpi-n" id="k-costo">$0</div><div class="kpi-l">Costo insumos evento</div></div>
+      </div>
+      <div class="card">
+        <div class="card-t">Últimas atenciones <button class="btn" onclick="abrirModal()">+ Nueva Atención</button></div>
+        <table><thead><tr><th>Hora</th><th>Paciente</th><th>Triaje</th><th>Diagnóstico</th><th>Estado</th></tr></thead>
+        <tbody id="tabla-dash"></tbody></table>
+      </div>
+      <div class="card">
+        <div class="card-t">⚠️ Alertas activas</div>
+        <div style="font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:8px">
+          <div>🟡 <strong style="color:var(--yellow)">Salbutamol aerosol</strong> — quedan 2 unidades (mínimo 3)</div>
+          <div>🟡 <strong style="color:var(--yellow)">Carro 3</strong> — vendas elásticas bajo stock mínimo</div>
+          <div id="alerta-dinamica" style="display:none">🔴 <strong style="color:var(--red)">Suero fisiológico</strong> — stock agotado en Carro 1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATENCIONES -->
+    <section class="vista" id="v-atenciones">
+      <div class="titulo">Atenciones 🏥</div>
+      <div class="sub">Registro en tiempo real · cada profesional desde su teléfono</div>
+      <div class="card">
+        <div class="card-t">Atenciones del evento <button class="btn" onclick="abrirModal()">+ Nueva Atención</button></div>
+        <table><thead><tr><th>Hora</th><th>Paciente</th><th>RUT</th><th>Triaje</th><th>Diagnóstico</th><th>Profesional</th><th>Estado</th></tr></thead>
+        <tbody id="tabla-at"></tbody></table>
+      </div>
+    </section>
+
+    <!-- CARROS -->
+    <section class="vista" id="v-carros">
+      <div class="titulo">Carros Clínicos 🚑</div>
+      <div class="sub">Stock en vivo por carro y cajón · presiona "Usar" y mira el descuento</div>
+      <div class="carros" id="carros-grid"></div>
+    </section>
+
+    <!-- MEDICAMENTOS -->
+    <section class="vista" id="v-medicamentos">
+      <div class="titulo">Bolso de Medicamentos 💊</div>
+      <div class="sub">26 fármacos con vencimiento, stock mínimo y precio unitario</div>
+      <div class="card"><table><thead><tr><th>Medicamento</th><th>Vence</th><th>Precio</th><th>Stock</th><th>Estado</th></tr></thead>
+      <tbody id="tabla-meds"></tbody></table></div>
+    </section>
+
+    <!-- VALORIZACIÓN -->
+    <section class="vista" id="v-valorizacion">
+      <div class="titulo">Valorización 💰</div>
+      <div class="sub">Cuánto vale tu inventario y cuánto consumió este evento</div>
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-n">$2,6M</div><div class="kpi-l">Inventario total valorizado</div></div>
+        <div class="kpi"><div class="kpi-n">179</div><div class="kpi-l">Tipos de insumos</div></div>
+        <div class="kpi"><div class="kpi-n" id="k-costo2">$0</div><div class="kpi-l">Consumido en este evento</div></div>
+      </div>
+      <div class="card">
+        <div class="card-t">Desglose del inventario</div>
+        <div class="val-row"><span>💊 Medicamentos (26)</span><div class="val-bar"><div style="width:8%"></div></div><strong>$187.000</strong></div>
+        <div class="val-row"><span>🎒 Bolso Kines Maestro (30)</span><div class="val-bar"><div style="width:7%"></div></div><strong>$167.100</strong></div>
+        <div class="val-row"><span>📦 Insumos generales (123)</span><div class="val-bar"><div style="width:100%"></div></div><strong>$2.259.350</strong></div>
+      </div>
+      <div class="card">
+        <div class="card-t">Consumo del evento (automático)</div>
+        <div id="consumos-lista" style="font-size:13px;color:var(--muted)">Aún no hay consumos — registra una atención con medicamento o usa un insumo de un carro.</div>
+      </div>
+    </section>
+
+    <!-- REPORTE -->
+    <section class="vista" id="v-reporte">
+      <div class="titulo">Reporte del Evento 📄</div>
+      <div class="sub">Listo para el organizador al terminar el último participante</div>
+      <div class="card">
+        <div style="background:linear-gradient(135deg,#0D3550,#00c2a8);border-radius:10px;padding:16px 18px;margin-bottom:14px">
+          <div style="font-weight:800;font-size:15px;color:#fff">Maratón Costa Azul 2026</div>
+          <div style="font-size:11px;color:#ffffffaa;margin-top:3px">Hoy · Playa Costa Azul · 8 profesionales · 2.400 corredores</div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-n" id="r-at">0</div><div class="kpi-l">Atenciones</div></div>
+          <div class="kpi"><div class="kpi-n" id="r-der">0</div><div class="kpi-l">Derivaciones</div></div>
+          <div class="kpi"><div class="kpi-n" id="r-costo">$0</div><div class="kpi-l">Costo insumos</div></div>
+          <div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Incidentes críticos</div></div>
+        </div>
+        <button class="btn" style="width:100%" onclick="toast('📧 En la versión real, el reporte llega por correo con CSV adjunto al cerrar el evento')">Cerrar evento y enviar reporte</button>
+      </div>
+      <div class="card" style="border-color:var(--accent)">
+        <div class="card-t" style="color:var(--accent)">¿Te gustó? Esto es el 30% de lo que hace TRIAGE360</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">
+          La versión completa incluye kinesiología y masoterapia, historial unificado de pacientes con alergias, rentabilidad por evento con honorarios, auditoría completa y mucho más — con tus datos, tu equipo y tu marca.
+        </div>
+        <a href="https://www.triage360.cl/#contact"><button class="btn" style="width:100%">Solicitar demo en vivo con mis datos →</button></a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button class="hamb" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- MODAL NUEVA ATENCIÓN -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div style="font-size:16px;font-weight:800;margin-bottom:4px">Nueva Atención</div>
+    <div style="font-size:11px;color:var(--muted)">Así de rápido registra tu equipo en terreno</div>
+    <label class="f-lbl">RUT del paciente — prueba con <span style="color:var(--accent);cursor:pointer" onclick="document.getElementById('f-rut').value='12.345.678-9';autofill()">12.345.678-9</span></label>
+    <input id="f-rut" placeholder="12.345.678-9" oninput="autofill()">
+    <div class="alerta-alergia" id="alergia">⚠️ ALERGIAS: Penicilina — registrado en ficha del paciente</div>
+    <label class="f-lbl">Nombre</label>
+    <input id="f-nombre" placeholder="Nombre del paciente">
+    <label class="f-lbl">Triaje</label>
+    <div class="triaje-btns">
+      <button class="tri" data-t="VERDE" onclick="setTriaje('VERDE')">🟢 VERDE</button>
+      <button class="tri" data-t="AMARILLO" onclick="setTriaje('AMARILLO')">🟡 AMARILLO</button>
+      <button class="tri" data-t="ROJO" onclick="setTriaje('ROJO')">🔴 ROJO</button>
+    </div>
+    <label class="f-lbl">Diagnóstico</label>
+    <select id="f-diag">
+      <option>Deshidratación leve</option><option>Esguince de tobillo</option><option>Contusión</option>
+      <option>Golpe de calor</option><option>Herida superficial</option><option>Calambre muscular</option>
+    </select>
+    <label class="f-lbl">Medicamento administrado (descuenta stock y suma costo)</label>
+    <select id="f-med">
+      <option value="">— Ninguno —</option>
+      <option value="Paracetamol 500mg|250">Paracetamol 500mg · $250</option>
+      <option value="Ibuprofeno 400mg|180">Ibuprofeno 400mg · $180</option>
+      <option value="Suero fisiológico 500ml|800">Suero fisiológico 500ml · $800</option>
+    </select>
+    <div style="display:flex;gap:8px;margin-top:18px">
+      <button class="btn btn-ghost" style="flex:1" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn" style="flex:2" onclick="guardarAtencion()">Guardar Atención</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ════════ DATOS FICTICIOS EN MEMORIA — nada sale de tu navegador ════════ */
+const atenciones = [
+  { hora:'09:12', nombre:'Camila Rojas', rut:'15.443.221-8', triaje:'VERDE', diag:'Calambre muscular', prof:'Kine. Morales', estado:'Alta' },
+  { hora:'09:48', nombre:'Pedro Soto', rut:'18.220.443-1', triaje:'AMARILLO', diag:'Deshidratación leve', prof:'Enf. Vargas', estado:'Alta' },
+  { hora:'10:31', nombre:'Javiera Núñez', rut:'20.118.762-3', triaje:'VERDE', diag:'Herida superficial', prof:'Param. Díaz', estado:'Alta' },
+  { hora:'11:05', nombre:'Marco Fuentes', rut:'13.998.456-K', triaje:'ROJO', diag:'Golpe de calor', prof:'Dr. Lagos', estado:'Derivado' },
+];
+const meds = [
+  ['Paracetamol 500mg','12/2026','$250',32,'ok'],['Ibuprofeno 400mg','08/2026','$180',24,'ok'],
+  ['Ketorolaco 30mg','08/2026','$3.200',18,'ok'],['Ondansetrón 4mg','11/2026','$4.500',6,'ok'],
+  ['Dexametasona 4mg','12/2026','$2.800',4,'bajo'],['Salbutamol aerosol','09/2026','$6.200',2,'bajo'],
+  ['Clorfenamina 10mg','07/2027','$1.900',8,'ok'],['Metoclopramida 10mg','02/2027','$2.100',9,'ok'],
+];
+const carros = [
+  { n:'Carro 1 · Médico', items:[['Suero fisiológico 500ml',8,800],['Gasas estériles',40,150],['Guantes nitrilo (par)',60,120]] },
+  { n:'Carro 2 · Trauma', items:[['Férula inmovilizadora',5,4500],['Venda elástica 10cm',18,600],['Compresa fría instantánea',12,950]] },
+  { n:'Carro 3 · Paramédico', items:[['Apósitos adhesivos',35,300],['Suero oral (sobre)',22,450],['Tela adhesiva',14,700]] },
+  { n:'Carro 4 · Kinesiología', items:[['Kinesiotape (rollo)',9,3500],['Pretape',11,2200],['Crema descongestionante',7,1800]] },
+];
+let consumos = [];
+let triajeSel = 'VERDE';
+
+const $ = id => document.getElementById(id);
+const clp = n => '$' + Math.round(n).toLocaleString('es-CL');
+const badgeT = t => `<span class="badge b-${t.toLowerCase()}">${t}</span>`;
+
+/* ── Navegación ── */
+document.querySelectorAll('.nav-item').forEach(el => el.addEventListener('click', () => {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('act'));
+  document.querySelectorAll('.vista').forEach(v => v.classList.remove('act'));
+  el.classList.add('act');
+  $('v-' + el.dataset.v).classList.add('act');
+  $('sidebar').classList.remove('open');
+}));
+
+/* ── Render ── */
+function render() {
+  const der = atenciones.filter(a => a.estado === 'Derivado').length;
+  const altas = atenciones.filter(a => a.estado === 'Alta').length;
+  const costo = consumos.reduce((s, c) => s + c.precio, 0);
+  $('k-at').textContent = atenciones.length; $('k-der').textContent = der; $('k-altas').textContent = altas;
+  $('k-costo').textContent = clp(costo); $('k-costo2').textContent = clp(costo);
+  $('r-at').textContent = atenciones.length; $('r-der').textContent = der; $('r-costo').textContent = clp(costo);
+
+  $('tabla-dash').innerHTML = atenciones.slice(-5).reverse().map(a =>
+    `<tr><td>${a.hora}</td><td>${a.nombre}</td><td>${badgeT(a.triaje)}</td><td>${a.diag}</td><td>${a.estado}</td></tr>`).join('');
+  $('tabla-at').innerHTML = atenciones.slice().reverse().map(a =>
+    `<tr><td>${a.hora}</td><td>${a.nombre}</td><td style="color:var(--muted)">${a.rut}</td><td>${badgeT(a.triaje)}</td><td>${a.diag}</td><td style="color:var(--muted)">${a.prof}</td><td>${a.estado}</td></tr>`).join('');
+  $('tabla-meds').innerHTML = meds.map(m =>
+    `<tr><td>${m[0]}</td><td style="color:var(--muted)">${m[1]}</td><td>${m[2]}</td><td><strong>${m[3]}</strong></td><td><span class="badge b-${m[4]}">${m[4] === 'ok' ? 'OK' : 'Bajo'}</span></td></tr>`).join('');
+
+  $('carros-grid').innerHTML = carros.map((c, ci) => {
+    const total = c.items.reduce((s, i) => s + i[1], 0);
+    const pct = Math.min(100, Math.round(total / 1.2));
+    return `<div class="carro"><div class="carro-n">${c.n}</div>
+      <div class="barra"><div style="width:${pct}%"></div></div>
+      <div class="carro-info"><span>${total} unidades</span><span style="color:var(--accent);font-weight:700">${pct}%</span></div>
+      <div class="carro-items">${c.items.map((it, ii) =>
+        `<div class="c-item"><span>${it[0]} <strong style="color:${it[1] === 0 ? 'var(--red)' : it[1] < 8 ? 'var(--yellow)' : 'var(--text)'}">×${it[1]}</strong></span>
+         <button onclick="usar(${ci},${ii})">Usar</button></div>`).join('')}</div></div>`;
+  }).join('');
+
+  $('consumos-lista').innerHTML = consumos.length === 0
+    ? 'Aún no hay consumos — registra una atención con medicamento o usa un insumo de un carro.'
+    : consumos.slice().reverse().map(c => `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #30363d40"><span>${c.nombre}</span><strong style="color:var(--text)">${clp(c.precio)}</strong></div>`).join('') +
+      `<div style="display:flex;justify-content:space-between;padding:10px 0 0;font-weight:800;color:var(--accent)"><span>TOTAL EVENTO</span><span>${clp(consumos.reduce((s, c) => s + c.precio, 0))}</span></div>`;
+}
+
+/* ── Interacciones ── */
+function usar(ci, ii) {
+  const it = carros[ci].items[ii];
+  if (it[1] <= 0) { toast('❌ Sin stock — en la versión real ya habría llegado la alerta de reposición'); return; }
+  it[1]--;
+  consumos.push({ nombre: it[0], precio: it[2] });
+  if (it[1] === 0) { $('alerta-dinamica').style.display = 'block'; toast(`🔴 ${it[0]} AGOTADO — alerta automática enviada al administrador`); }
+  else if (it[1] < 8) toast(`🟡 ${it[0]} — stock bajo (${it[1]} restantes). Consumo registrado: ${clp(it[2])}`);
+  else toast(`✓ ${it[0]} usado — descontado del carro y sumado al costo del evento (${clp(it[2])})`);
+  render();
+}
+function abrirModal() { $('modal').classList.add('open'); $('f-rut').value = ''; $('f-nombre').value = ''; $('alergia').style.display = 'none'; setTriaje('VERDE'); }
+function cerrarModal() { $('modal').classList.remove('open'); }
+function setTriaje(t) { triajeSel = t; document.querySelectorAll('.tri').forEach(b => { b.className = 'tri' + (b.dataset.t === t ? ' sel-' + t : ''); }); }
+function autofill() {
+  const v = $('f-rut').value.replace(/[^0-9kK]/g, '');
+  if (v === '123456789') { $('f-nombre').value = 'María Contreras'; $('alergia').style.display = 'block'; toast('✓ Paciente reconocida — ficha cargada con su historial y alergias'); }
+  else $('alergia').style.display = 'none';
+}
+function guardarAtencion() {
+  const nombre = $('f-nombre').value.trim() || 'Paciente Demo';
+  const med = $('f-med').value;
+  const hora = new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+  atenciones.push({ hora, nombre, rut: $('f-rut').value || '—', triaje: triajeSel, diag: $('f-diag').value, prof: 'Tú (demo)', estado: triajeSel === 'ROJO' ? 'Derivado' : 'Alta' });
+  if (med) { const [n, p] = med.split('|'); consumos.push({ nombre: n, precio: Number(p) }); }
+  cerrarModal(); render();
+  toast(med ? '✓ Atención guardada · medicamento descontado del bolso y costo registrado' : '✓ Atención guardada en tiempo real — todo tu equipo ya la ve');
+}
+let toastT;
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = 'none', 3800); }
+
+render();
+</script>
+</body>
+</html>

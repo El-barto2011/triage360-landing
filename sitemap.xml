@@ -60,6 +60,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Demo interactivo -->
+  <url>
+    <loc>https://www.triage360.cl/demo/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Legales -->
   <url>
     <loc>https://www.triage360.cl/privacidad/</loc>
